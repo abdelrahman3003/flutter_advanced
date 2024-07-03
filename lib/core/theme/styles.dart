@@ -8,9 +8,19 @@ class TextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.black,
   );
-    static TextStyle font32blueBold = TextStyle(
+  static TextStyle font32blueBold = TextStyle(
     fontSize: 32.sp,
     fontWeight: FontWeight.bold,
     color: AppColors.primary,
+  );
+  static TextStyle font12greye400w = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+  );
+    static TextStyle font16whitew600 = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColors.white,
   );
 }
