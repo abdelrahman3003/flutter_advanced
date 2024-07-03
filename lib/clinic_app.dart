@@ -17,8 +17,8 @@ class ClinicApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              primaryColor: ColorsApp.primary,
-              scaffoldBackgroundColor: ColorsApp.white,
+              primaryColor: AppColors.primary,
+              scaffoldBackgroundColor: AppColors.white,
             ),
             onGenerateRoute: Routes.generateRoute,
           );
