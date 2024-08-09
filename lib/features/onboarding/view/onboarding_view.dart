@@ -1,4 +1,6 @@
+import 'package:clinic_system/core/class/navigator.dart';
 import 'package:clinic_system/core/constant/assets.dart';
+import 'package:clinic_system/core/constant/routes.dart';
 import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:flutter/material.dart';
@@ -70,7 +72,9 @@ class OnboardingView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNameed(Routes.ksingin);
+                },
                 style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(AppColors.primary),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
