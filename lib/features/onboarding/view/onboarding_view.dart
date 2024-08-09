@@ -1,8 +1,8 @@
 import 'package:clinic_system/core/class/navigator.dart';
 import 'package:clinic_system/core/constant/assets.dart';
 import 'package:clinic_system/core/constant/routes.dart';
-import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
+import 'package:clinic_system/core/theme/widget/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -70,23 +70,13 @@ class OnboardingView extends StatelessWidget {
           ),
           SizedBox(height: 40.h),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32),
-            child: TextButton(
+              padding: const EdgeInsets.symmetric(horizontal: 32),
+              child: AppButton(
+                text: "Get Started",
                 onPressed: () {
                   context.pushNameed(Routes.ksingin);
                 },
-                style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(AppColors.primary),
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    minimumSize:
-                        WidgetStateProperty.all(Size(double.infinity, 50.h)),
-                    shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)))),
-                child: Text(
-                  "Get Started",
-                  style: TextStyles.font16whitew600,
-                )),
-          )
+              ))
         ],
       ),
     )));
