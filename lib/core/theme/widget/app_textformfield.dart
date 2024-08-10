@@ -5,12 +5,27 @@ import '../colors.dart';
 import '../styles.dart';
 
 class AppTextformfield extends StatelessWidget {
-  const AppTextformfield({super.key, this.hint, this.isPassword = false});
+  const AppTextformfield(
+      {super.key,
+      this.hint,
+      this.isPassword = false,
+      this.onPressedEye,
+      this.isShowPassword = false,
+      this.controller,
+      this.validator});
   final String? hint;
   final bool isPassword;
+  final Function()? onPressedEye;
+
+  final bool isShowPassword;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: isPassword ? !isShowPassword : false,
+      controller: controller,
+      validator: validator,
       decoration: InputDecoration(
           hintText: hint,
           hintStyle: TextStyles.font14greye400w,
@@ -22,14 +37,22 @@ class AppTextformfield extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: const BorderSide(color: AppColors.primary)),
+          errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(color: AppColors.red)),
+          focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: const BorderSide(color: AppColors.red)),
           filled: true,
           fillColor: AppColors.grey3,
           suffixIcon: isPassword
               ? IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.remove_red_eye,
-                    color: AppColors.grey3,
+                  onPressed: onPressedEye,
+                  icon: Icon(
+                    isShowPassword
+                        ? Icons.visibility_off
+                        : Icons.visibility_rounded,
+                    color: AppColors.primary,
                   ))
               : null),
     );
