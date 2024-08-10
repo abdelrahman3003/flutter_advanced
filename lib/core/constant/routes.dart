@@ -1,16 +1,28 @@
+import 'package:clinic_system/core/constant/dependecy_injection.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/view/signIn_view.dart';
 import 'package:clinic_system/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/home/presentation/view/home_view.dart';
 
 class Routes {
   static const String konboardingView = '/onboardingView';
   static const String ksingin = '/singin';
+  static const String kHomeView = '/homepage';
   static Route generateRoute(RouteSettings setting) {
     switch (setting.name) {
       case "/":
         return MaterialPageRoute(builder: (context) => const OnboardingView());
       case ksingin:
-        return MaterialPageRoute(builder: (context) => const SigninView());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getit<LoginCubit>(),
+                  child: const SigninView(),
+                ));
+      case kHomeView:
+        return MaterialPageRoute(builder: (context) => const HomeView());
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
