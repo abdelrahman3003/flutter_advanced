@@ -1,4 +1,4 @@
-import 'package:clinic_system/features/auth/signIn/view/signIn_view.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/view/signIn_view.dart';
 import 'package:clinic_system/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
