@@ -8,12 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailController =
-      TextEditingController(text: 'abdo13@gmail.com');
+      TextEditingController();
   TextEditingController passwordController =
-      TextEditingController(text: 'Abdo@010');
+      TextEditingController();
   LoginRequsetBody? loginRequsetBody;
   bool hasLowerCase = false;
   bool hasUpperCase = false;

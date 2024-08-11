@@ -1,5 +1,6 @@
 import 'package:clinic_system/core/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PasswordConditionText extends StatelessWidget {
   const PasswordConditionText(
@@ -9,8 +10,10 @@ class PasswordConditionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text,
+      "•  $text",
       style: TextStyle(
+          fontSize: 12.sp,
+          fontWeight: FontWeight.w500,
           color: isValidate ? Colors.green : AppColors.black,
           decoration: isValidate ? TextDecoration.lineThrough : null),
     );
