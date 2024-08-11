@@ -1,9 +1,13 @@
+import 'package:clinic_system/core/class/navigator.dart';
 import 'package:clinic_system/core/constant/app_regex.dart';
+import 'package:clinic_system/core/constant/routes.dart';
 import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/core/theme/widget/app_button.dart';
 import 'package:clinic_system/core/theme/widget/app_textformfield.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_state.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/view/widget/password_condition_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,9 +54,11 @@ class _SigninViewState extends State<SigninView> {
                 hint: 'Email',
                 controller: cubit.emailController,
                 validator: (value) {
-                  if (cubit.emailController.text.isEmpty) {
-                    return "this value is'n empty";
+                  if (cubit.emailController.text.isEmpty ||
+                      !AppRegex.isEmailValid(value!)) {
+                    return "Not valid Email";
                   }
+
                   return null;
                 },
               ),
@@ -68,22 +74,32 @@ class _SigninViewState extends State<SigninView> {
                   });
                 },
                 validator: (value) {
-                  if (cubit.passwordController.text.isEmpty) {
-                    return "this value is'n empty";
-                  }
+                  bool? isvalidPassword;
                   setState(() {
-                    cubit.setUpPasswordControllerListner();
+                    isvalidPassword = cubit.setUpPasswordControllerListner();
                   });
+
+                  if (cubit.passwordController.text.isEmpty ||
+                      !isvalidPassword!) {
+                    return "Not valid Password";
+                  }
 
                   return null;
                 },
               ),
-              Text(
-                "at least 1 number",
-                style: TextStyle(
-                    decoration:
-                        cubit.hasNumber ? TextDecoration.lineThrough : null),
-              ),
+              PasswordConditionText(
+                  text: " at least  8 character",
+                  isValidate: cubit.hasMixLenght),
+              PasswordConditionText(
+                  text: "speacial character",
+                  isValidate: cubit.hasSepicailCase),
+              PasswordConditionText(
+                  text: "lower case character", isValidate: cubit.hasLowerCase),
+              PasswordConditionText(
+                  text: "upper case characterr",
+                  isValidate: cubit.hasUpperCase),
+              PasswordConditionText(
+                  text: "at least 1 number", isValidate: cubit.hasNumber),
               SizedBox(height: 16.h),
               Row(
                 children: [
@@ -105,11 +121,10 @@ class _SigninViewState extends State<SigninView> {
               ),
               SizedBox(height: 32.h),
               AppButton(
-                text: "Login",
-                onPressed: () {
-                  cubit.emitLoginStates();
-                },
-              ),
+                  text: "Login",
+                  onPressed: () {
+                    cubit.emitLoginStates();
+                  }),
               SizedBox(height: 40.h),
               RichText(
                 textAlign: TextAlign.center,
@@ -136,6 +151,52 @@ class _SigninViewState extends State<SigninView> {
                       style: TextStyles.font14black400w),
                   Text('Sign Up ', style: TextStyles.font14blue400w),
                 ],
+              ),
+              BlocListener<LoginCubit, LoginState>(
+                listener: (context, state) {
+                  state.whenOrNull(
+                    loading: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => const Center(
+                                  child: CircularProgressIndicator(
+                                color: AppColors.primary,
+                              )));
+                    },
+                    error: (error) {
+                      context.pop();
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          icon: const Icon(
+                            Icons.error,
+                            color: AppColors.red,
+                            size: 32,
+                          ),
+                          content: Text(
+                            error,
+                            style: TextStyles.font16whitew600
+                                .copyWith(color: AppColors.red),
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                context.pop();
+                              },
+                              child: Text('GO it',
+                                  style: TextStyles.font14blue400w),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                    success: (data) {
+                      context.pop();
+                      context.pushNameed(Routes.kHomeView);
+                    },
+                  );
+                },
+                child: Container(),
               )
             ],
           ),

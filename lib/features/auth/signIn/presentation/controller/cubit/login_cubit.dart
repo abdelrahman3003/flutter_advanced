@@ -10,16 +10,18 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController =
+      TextEditingController(text: 'abdo13@gmail.com');
+  TextEditingController passwordController =
+      TextEditingController(text: 'Abdo@010');
   LoginRequsetBody? loginRequsetBody;
   bool hasLowerCase = false;
   bool hasUpperCase = false;
   bool hasSepicailCase = false;
   bool hasNumber = false;
   bool hasMixLenght = false;
-  setUpPasswordControllerListner() {
 
+  bool setUpPasswordControllerListner() {
     passwordController.addListener(
       () {
         hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
@@ -29,6 +31,14 @@ class LoginCubit extends Cubit<LoginState> {
         hasMixLenght = AppRegex.hasMinLength(passwordController.text);
       },
     );
+    if (hasLowerCase &&
+        hasUpperCase &&
+        hasSepicailCase &&
+        hasNumber &&
+        hasMixLenght) {
+      return true;
+    }
+    return false;
   }
 
   void emitLoginStates() async {
@@ -38,12 +48,13 @@ class LoginCubit extends Cubit<LoginState> {
       emit(const LoginState.loading());
       var response = await loginRepo.login(loginRequsetBody!);
       response.when(
-        sucess: (data) {
-          LoginState.success(data);
-        },
-        failure: (errorHandler) =>
-            LoginState.error(error: errorHandler.apiErrorModel.message ?? ""),
-      );
+          sucess: (data) {
+            emit(LoginState.success(data));
+          },
+          failure: (errorHandler) => emit(
+                LoginState.error(
+                    error: errorHandler.apiErrorModel.message ?? ""),
+              ));
     }
   }
 }
