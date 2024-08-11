@@ -1,37 +1,39 @@
 import 'package:clinic_system/core/class/navigator.dart';
-import 'package:clinic_system/core/constant/app_regex.dart';
-import 'package:clinic_system/core/constant/routes.dart';
-import 'package:clinic_system/core/theme/colors.dart';
-import 'package:clinic_system/core/theme/styles.dart';
-import 'package:clinic_system/core/theme/widget/app_button.dart';
-import 'package:clinic_system/core/theme/widget/app_textformfield.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_state.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/password_condition_text.dart';
+import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_cubit.dart';
+import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SigninView extends StatefulWidget {
-  const SigninView({super.key});
+import '../../../../../core/constant/app_regex.dart';
+import '../../../../../core/constant/routes.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
+import '../../../../../core/theme/widget/app_button.dart';
+import '../../../../../core/theme/widget/app_textformfield.dart';
+import '../../../signIn/presentation/view/widget/password_condition_text.dart';
+
+class SignupView extends StatefulWidget {
+  const SignupView({super.key});
 
   @override
-  State<SigninView> createState() => _SigninViewState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _SigninViewState extends State<SigninView> {
-  bool isCheck = false;
-  bool isShowPassword = false;
+bool isCheck = false;
+bool isShowPassword = false;
+bool isShowConfirmPassword = false;
 
+class _SignupViewState extends State<SignupView> {
   @override
   void initState() {
     super.initState();
-    context.read<LoginCubit>().setUpPasswordControllerListner();
+    context.read<SignupCubit>().setUpPasswordControllerListner();
   }
 
   @override
   Widget build(BuildContext context) {
-    var cubit = context.read<LoginCubit>();
+    var cubit = context.read<SignupCubit>();
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -43,19 +45,45 @@ class _SigninViewState extends State<SigninView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
-              Text('Welcome Back', style: TextStyles.font24blueBold),
+              Text('Create Account', style: TextStyles.font24blueBold),
               SizedBox(height: 10.h),
               Text(
-                "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
+                "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                 style: TextStyles.font14greye400w,
               ),
               SizedBox(height: 36.h),
+              AppTextformfield(
+                hint: 'Name',
+                controller: cubit.nameControler,
+                validator: (value) {
+                  if (cubit.nameControler.text.isEmpty) {
+                    return "Not valid Email";
+                  }
+
+                  return null;
+                },
+              ),
+              SizedBox(height: 16.h),
               AppTextformfield(
                 hint: 'Email',
                 controller: cubit.emailController,
                 validator: (value) {
                   if (cubit.emailController.text.isEmpty ||
                       !AppRegex.isEmailValid(value!)) {
+                    return "Not valid Email";
+                  }
+
+                  return null;
+                },
+              ),
+              SizedBox(height: 16.h),
+              AppTextformfield(
+                hint: 'Phone Number',
+                keyboardType: TextInputType.number,
+                controller: cubit.phoneController,
+                validator: (value) {
+                  if (cubit.emailController.text.isEmpty ||
+                      !AppRegex.isPhoneNumberValid(value!)) {
                     return "Not valid Email";
                   }
 
@@ -87,30 +115,48 @@ class _SigninViewState extends State<SigninView> {
                   return null;
                 },
               ),
-              Row(
-                children: [
-                  Transform.scale(
-                    scale: 1.3,
-                    child: Checkbox(
-                        activeColor: AppColors.primary,
-                        value: isCheck,
-                        onChanged: (value) {
-                          setState(() {
-                            isCheck = value!;
-                          });
-                        }),
-                  ),
-                  Text('Remember me', style: TextStyles.font14greye400w),
-                  const Spacer(),
-                  Text('Forgot Password?', style: TextStyles.font14blue400w),
-                ],
+              SizedBox(height: 16.h),
+              AppTextformfield(
+                controller: cubit.confirmPasswordController,
+                hint: 'Confirm Password',
+                isPassword: true,
+                isShowPassword: isShowConfirmPassword,
+                onPressedEye: () {
+                  setState(() {
+                    isShowConfirmPassword = !isShowConfirmPassword;
+                  });
+                },
+                validator: (value) {
+                  bool? isvalidPassword;
+                  setState(() {
+                    isvalidPassword = cubit.setUpPasswordControllerListner();
+                  });
+
+                  if (cubit.confirmPasswordController.text.isEmpty ||
+                      !isvalidPassword!) {
+                    return "Not valid Password";
+                  }
+
+                  return null;
+                },
               ),
+              SizedBox(height: 16.h),
+              PasswordConditionText(
+                  text: "At least 8 characters long",
+                  isValidate: cubit.hasMixLenght),
+              PasswordConditionText(
+                  text: "At least 1 speacial character",
+                  isValidate: cubit.hasSepicailCase),
+              PasswordConditionText(
+                  text: "At least 1 lowercase letter",
+                  isValidate: cubit.hasLowerCase),
+              PasswordConditionText(
+                  text: "At least 1 uppercase letter",
+                  isValidate: cubit.hasUpperCase),
+              PasswordConditionText(
+                  text: "At least 1 number", isValidate: cubit.hasNumber),
               SizedBox(height: 32.h),
-              AppButton(
-                  text: "Login",
-                  onPressed: () {
-                    cubit.emitLoginStates();
-                  }),
+              AppButton(text: "Register", onPressed: () {}),
               SizedBox(height: 40.h),
               RichText(
                 textAlign: TextAlign.center,
@@ -135,10 +181,10 @@ class _SigninViewState extends State<SigninView> {
                 children: [
                   Text('Already have an account yet? ',
                       style: TextStyles.font14black400w),
-                  Text('Sign Up ', style: TextStyles.font14blue400w),
+                  Text('Login ', style: TextStyles.font14blue400w),
                 ],
               ),
-              BlocListener<LoginCubit, LoginState>(
+              BlocListener<SignupCubit, SignupState>(
                 listener: (context, state) {
                   state.whenOrNull(
                     loading: () {

@@ -12,11 +12,11 @@ class AppTextformfield extends StatelessWidget {
       this.onPressedEye,
       this.isShowPassword = false,
       this.controller,
-      this.validator});
+      this.validator, this.keyboardType});
   final String? hint;
   final bool isPassword;
   final Function()? onPressedEye;
-
+final TextInputType? keyboardType;
   final bool isShowPassword;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -26,6 +26,7 @@ class AppTextformfield extends StatelessWidget {
       obscureText: isPassword ? !isShowPassword : false,
       controller: controller,
       validator: validator,
+      keyboardType:keyboardType ,
       decoration: InputDecoration(
           hintText: hint,
           hintStyle: TextStyles.font14greye400w,

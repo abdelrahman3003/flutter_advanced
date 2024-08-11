@@ -74,7 +74,7 @@ class OnboardingView extends StatelessWidget {
               child: AppButton(
                 text: "Get Started",
                 onPressed: () {
-                  context.pushNameed(Routes.ksingin);
+                  context.pushNameed(Routes.ksignupView);
                 },
               ))
         ],
