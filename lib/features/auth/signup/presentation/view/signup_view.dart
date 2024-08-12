@@ -28,12 +28,40 @@ class _SignupViewState extends State<SignupView> {
   @override
   void initState() {
     super.initState();
-    context.read<SignupCubit>().setUpPasswordControllerListner();
+    setUpPasswordControllerListner();
+  }
+
+  bool setUpPasswordControllerListner() {
+    var cubit = context.read<SignupCubit>();
+    cubit.passwordController.addListener(
+      () {
+        setState(() {
+          cubit.hasLowerCase =
+              AppRegex.hasLowerCase(cubit.passwordController.text);
+          cubit.hasUpperCase =
+              AppRegex.hasUpperCase(cubit.passwordController.text);
+          cubit.hasSepicailCase =
+              AppRegex.hasSpecialCharacter(cubit.passwordController.text);
+          cubit.hasNumber = AppRegex.hasNumber(cubit.passwordController.text);
+          cubit.hasMixLenght =
+              AppRegex.hasMinLength(cubit.passwordController.text);
+        });
+      },
+    );
+    if (cubit.hasLowerCase &&
+        cubit.hasUpperCase &&
+        cubit.hasSepicailCase &&
+        cubit.hasNumber &&
+        cubit.hasMixLenght) {
+      return true;
+    }
+    return false;
   }
 
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<SignupCubit>();
+
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -57,7 +85,7 @@ class _SignupViewState extends State<SignupView> {
                 controller: cubit.nameControler,
                 validator: (value) {
                   if (cubit.nameControler.text.isEmpty) {
-                    return "Not valid Email";
+                    return "Not valid Name";
                   }
 
                   return null;
@@ -84,12 +112,13 @@ class _SignupViewState extends State<SignupView> {
                 validator: (value) {
                   if (cubit.emailController.text.isEmpty ||
                       !AppRegex.isPhoneNumberValid(value!)) {
-                    return "Not valid Email";
+                    return "Not valid Phone Number";
                   }
 
                   return null;
                 },
               ),
+     
               SizedBox(height: 16.h),
               AppTextformfield(
                 controller: cubit.passwordController,
@@ -102,16 +131,10 @@ class _SignupViewState extends State<SignupView> {
                   });
                 },
                 validator: (value) {
-                  bool? isvalidPassword;
-                  setState(() {
-                    isvalidPassword = cubit.setUpPasswordControllerListner();
-                  });
-
                   if (cubit.passwordController.text.isEmpty ||
-                      !isvalidPassword!) {
-                    return "Not valid Password";
+                      !setUpPasswordControllerListner()) {
+                    return "Not valid  Password";
                   }
-
                   return null;
                 },
               ),
@@ -127,14 +150,10 @@ class _SignupViewState extends State<SignupView> {
                   });
                 },
                 validator: (value) {
-                  bool? isvalidPassword;
-                  setState(() {
-                    isvalidPassword = cubit.setUpPasswordControllerListner();
-                  });
-
-                  if (cubit.confirmPasswordController.text.isEmpty ||
-                      !isvalidPassword!) {
-                    return "Not valid Password";
+                  if (value == null ||
+                      value.isEmpty ||
+                      value != cubit.passwordController.text) {
+                    return "Not valid confirm Password";
                   }
 
                   return null;
@@ -156,7 +175,11 @@ class _SignupViewState extends State<SignupView> {
               PasswordConditionText(
                   text: "At least 1 number", isValidate: cubit.hasNumber),
               SizedBox(height: 32.h),
-              AppButton(text: "Register", onPressed: () {}),
+              AppButton(
+                  text: "Register",
+                  onPressed: () {
+                    cubit.emitLoginStates();
+                  }),
               SizedBox(height: 40.h),
               RichText(
                 textAlign: TextAlign.center,
@@ -181,9 +204,14 @@ class _SignupViewState extends State<SignupView> {
                 children: [
                   Text('Already have an account yet? ',
                       style: TextStyles.font14black400w),
-                  Text('Login ', style: TextStyles.font14blue400w),
+                  TextButton(
+                      onPressed: () {
+                        context.pushNameed(Routes.ksinginView);
+                      },
+                      child: Text('Login ', style: TextStyles.font14blue400w)),
                 ],
               ),
+              SizedBox(height: 40.h),
               BlocListener<SignupCubit, SignupState>(
                 listener: (context, state) {
                   state.whenOrNull(
