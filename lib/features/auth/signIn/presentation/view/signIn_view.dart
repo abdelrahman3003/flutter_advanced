@@ -7,7 +7,6 @@ import 'package:clinic_system/core/theme/widget/app_button.dart';
 import 'package:clinic_system/core/theme/widget/app_textformfield.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_state.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/password_condition_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -135,7 +134,12 @@ class _SigninViewState extends State<SigninView> {
                 children: [
                   Text('Already have an account yet? ',
                       style: TextStyles.font14black400w),
-                  Text('Sign Up ', style: TextStyles.font14blue400w),
+                  TextButton(
+                      onPressed: () {
+                        context.pushNameed(Routes.ksignupView);
+                      },
+                      child:
+                          Text('Sign Up ', style: TextStyles.font14blue400w)),
                 ],
               ),
               BlocListener<LoginCubit, LoginState>(

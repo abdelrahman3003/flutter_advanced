@@ -16,12 +16,12 @@ class Routes {
   static const String kHomeView = '/homepage';
   static Route generateRoute(RouteSettings setting) {
     switch (setting.name) {
-      case konboardingView:
-        return MaterialPageRoute(builder: (context) => const OnboardingView());
       case "/":
+        return MaterialPageRoute(builder: (context) => const OnboardingView());
+      case ksignupView:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
-                  create: (context) => SignupCubit(),
+                  create: (context) => getit<SignupCubit>(),
                   child: const SignupView(),
                 ));
       case ksinginView:
