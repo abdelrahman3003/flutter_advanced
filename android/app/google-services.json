@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "146226765185",
+    "project_id": "flutter-app-destripution",
+    "storage_bucket": "flutter-app-destripution.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146226765185:android:bb926db4aea35de8f15c80",
+        "android_client_info": {
+          "package_name": "com.example.clinic_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz1MyhX0Hog9bw_-eBzUno-Go22WAPBJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
