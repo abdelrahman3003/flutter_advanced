@@ -17,6 +17,12 @@ class ClinicApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
+              checkboxTheme: CheckboxThemeData(
+                side: BorderSide(
+                    color: AppColors.grey2, // Border color
+                    width: 2.w // Border width
+                    ),
+              ),
               primaryColor: AppColors.primary,
               scaffoldBackgroundColor: AppColors.white,
             ),
