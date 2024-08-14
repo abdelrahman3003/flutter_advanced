@@ -29,6 +29,12 @@ jobs:
         ruby-version: "3.1.6"
         bundler-cache: true
         working-directory: android
+
+    - name: Clear Bundler cache and install dependencies
+        run: |
+          rm -rf android/vendor/bundle
+          bundle install --verbose
+        working-directory: android
         
     - name: Build and Distribute App
       env:
