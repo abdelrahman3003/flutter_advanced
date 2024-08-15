@@ -53,7 +53,7 @@ class OnboardingView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
                     "Best Doctor Appointment App",
-                    style: TextStyles.font32blueBold.copyWith(height: 1.5),
+                    style: Styles.font32blueBold.copyWith(height: 1.5),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -64,7 +64,7 @@ class OnboardingView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 32),
             child: Text(
               "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
-              style: TextStyles.font12greye400w,
+              style: Styles.font12greye400w,
               textAlign: TextAlign.center,
             ),
           ),

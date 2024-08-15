@@ -50,7 +50,7 @@ android {
     Development {
             dimension = "default"
             resValue( "string",  "app_name",  "DoDoc Development")
-            applicationIdSuffix = ".dev"
+          //  applicationIdSuffix = ".dev"
         }
     Production {
             dimension = "default"

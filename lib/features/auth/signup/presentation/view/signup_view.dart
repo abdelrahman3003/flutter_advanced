@@ -73,11 +73,11 @@ class _SignupViewState extends State<SignupView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
-              Text('Create Account', style: TextStyles.font24blueBold),
+              Text('Create Account', style: Styles.font24blueBold),
               SizedBox(height: 10.h),
               Text(
                 "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
-                style: TextStyles.font14greye400w,
+                style: Styles.font14greye400w,
               ),
               SizedBox(height: 36.h),
               AppTextformfield(
@@ -184,17 +184,17 @@ class _SignupViewState extends State<SignupView> {
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyles.font14greye400w
+                  style: Styles.font14greye400w
                       .copyWith(height: 1.5.h, color: AppColors.grey),
                   children: <TextSpan>[
                     const TextSpan(text: 'By logging, you agree to our '),
                     TextSpan(
                         text: 'Terms & Conditions ',
-                        style: TextStyles.font14black400w),
+                        style: Styles.font14black400w),
                     const TextSpan(text: 'and '),
                     TextSpan(
                         text: 'PrivacyPolicy.',
-                        style: TextStyles.font14black400w),
+                        style: Styles.font14black400w),
                   ],
                 ),
               ),
@@ -203,12 +203,12 @@ class _SignupViewState extends State<SignupView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Already have an account yet? ',
-                      style: TextStyles.font14black400w),
+                      style: Styles.font14black400w),
                   TextButton(
                       onPressed: () {
                         context.pushNameed(Routes.ksinginView);
                       },
-                      child: Text('Login ', style: TextStyles.font14blue400w)),
+                      child: Text('Login ', style: Styles.font14blue400w)),
                 ],
               ),
               SizedBox(height: 40.h),
@@ -235,7 +235,7 @@ class _SignupViewState extends State<SignupView> {
                           ),
                           content: Text(
                             error,
-                            style: TextStyles.font16whitew600
+                            style: Styles.font16whitew600
                                 .copyWith(color: AppColors.red),
                           ),
                           actions: [
@@ -244,7 +244,7 @@ class _SignupViewState extends State<SignupView> {
                                 context.pop();
                               },
                               child: Text('GO it',
-                                  style: TextStyles.font14blue400w),
+                                  style: Styles.font14blue400w),
                             )
                           ],
                         ),
