@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
             child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -137,6 +138,59 @@ class HomeView extends StatelessWidget {
                     style: Styles.font14black400w,
                   ),
                 ],
+              ),
+            ),
+          ),
+          SizedBox(height: 20.h),
+          Row(
+            children: [
+              Text("Recommendation Doctor", style: Styles.font18blackew700),
+              const Spacer(),
+              Text("See All", style: Styles.font14blue400w)
+            ],
+          ),
+          SizedBox(height: 20.h),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 6,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(bottom: 10.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 110.w,
+                      height: 110.h,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                              image:
+                                  AssetImage(Assets.images.docContainer.path))),
+                    ),
+                    SizedBox(width: 20.w),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Dr. Randy Wigham",
+                            style: Styles.font18blackew700
+                                .copyWith(fontSize: 15.sp)),
+                        SizedBox(height: 6.h),
+                        Text("General | RSUD Gatot Subroto",
+                            style: Styles.font14greye400w.copyWith(
+                                fontSize: 12.sp, color: AppColors.grey1)),
+                        SizedBox(height: 6.h),
+                        Row(
+                          children: [
+                            SvgPicture.asset(Assets.icons.magicStar),
+                            Text(" 4.8 (4,279 reviews)",
+                                style: Styles.font14greye400w.copyWith(
+                                    fontSize: 12.sp, color: AppColors.grey1)),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           )

@@ -24,6 +24,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.svg
   String get logo => 'assets/icons/logo.svg';
 
+  /// File path: assets/icons/magic-star.svg
+  String get magicStar => 'assets/icons/magic-star.svg';
+
   /// File path: assets/icons/new_notfication.svg
   String get newNotfication => 'assets/icons/new_notfication.svg';
 
@@ -31,8 +34,15 @@ class $AssetsIconsGen {
   String get notification => 'assets/icons/notification.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [brain1, docdoc, manDoctorEurope1, logo, newNotfication, notification];
+  List<String> get values => [
+        brain1,
+        docdoc,
+        manDoctorEurope1,
+        logo,
+        magicStar,
+        newNotfication,
+        notification
+      ];
 }
 
 class $AssetsImagesGen {
@@ -44,6 +54,10 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/doc.png
   AssetGenImage get doc => const AssetGenImage('assets/images/doc.png');
+
+  /// File path: assets/images/doc_container.png
+  AssetGenImage get docContainer =>
+      const AssetGenImage('assets/images/doc_container.png');
 
   /// File path: assets/images/onboarding_background.png
   AssetGenImage get onboardingBackground =>
@@ -57,8 +71,14 @@ class $AssetsImagesGen {
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [background, doc, onboardingBackground, onboardingDoc, splash];
+  List<AssetGenImage> get values => [
+        background,
+        doc,
+        docContainer,
+        onboardingBackground,
+        onboardingDoc,
+        splash
+      ];
 }
 
 class Assets {
