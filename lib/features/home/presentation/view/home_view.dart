@@ -57,7 +57,7 @@ class HomeView extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: 30.h),
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -91,8 +91,9 @@ class HomeView extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               vertical: 10.h, horizontal: 20.w)),
                       child: Text('Find Nearby',
-                          style:
-                              Styles.font14blue400w.copyWith(fontSize: 12.sp,)),
+                          style: Styles.font14blue400w.copyWith(
+                            fontSize: 12.sp,
+                          )),
                     ),
                   ],
                 ),
@@ -104,6 +105,41 @@ class HomeView extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 20.h),
+          Row(
+            children: [
+              Text("Doctor Speciality", style: Styles.font18blackew700),
+              const Spacer(),
+              Text("See All", style: Styles.font14blue400w)
+            ],
+          ),
+          SizedBox(height: 20.h),
+          SizedBox(
+            height: 100.h,
+            child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: CircleAvatar(
+                      backgroundColor: AppColors.grey4,
+                      radius: 30.h,
+                      child: SvgPicture.asset(
+                        Assets.icons.logo,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10.h),
+                  Text(
+                    "General",
+                    style: Styles.font14black400w,
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     )));
