@@ -2,7 +2,7 @@ import 'package:clinic_system/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TextStyles {
+class Styles {
   static TextStyle font24black700w = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w700,
@@ -25,7 +25,7 @@ class TextStyles {
   );
   static TextStyle font14blue400w = TextStyle(
     fontSize: 14.sp,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w400,
     color: AppColors.primary,
   );
   static TextStyle font12greye400w = TextStyle(
@@ -47,5 +47,10 @@ class TextStyles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.black,
+  );
+  static TextStyle font18whiteew500 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColors.white,
   );
 }

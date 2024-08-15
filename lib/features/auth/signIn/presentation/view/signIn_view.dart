@@ -42,11 +42,11 @@ class _SigninViewState extends State<SigninView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
-              Text('Welcome Back', style: TextStyles.font24blueBold),
+              Text('Welcome Back', style: Styles.font24blueBold),
               SizedBox(height: 10.h),
               Text(
                 "We're excited to have you back, can't wait to see what you've been up to since you last logged in.",
-                style: TextStyles.font14greye400w,
+                style: Styles.font14greye400w,
               ),
               SizedBox(height: 36.h),
               AppTextformfield(
@@ -99,9 +99,9 @@ class _SigninViewState extends State<SigninView> {
                           });
                         }),
                   ),
-                  Text('Remember me', style: TextStyles.font14greye400w),
+                  Text('Remember me', style: Styles.font14greye400w),
                   const Spacer(),
-                  Text('Forgot Password?', style: TextStyles.font14blue400w),
+                  Text('Forgot Password?', style: Styles.font14blue400w),
                 ],
               ),
               SizedBox(height: 32.h),
@@ -114,17 +114,17 @@ class _SigninViewState extends State<SigninView> {
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyles.font14greye400w
+                  style: Styles.font14greye400w
                       .copyWith(height: 1.5.h, color: AppColors.grey),
                   children: <TextSpan>[
                     const TextSpan(text: 'By logging, you agree to our '),
                     TextSpan(
                         text: 'Terms & Conditions ',
-                        style: TextStyles.font14black400w),
+                        style: Styles.font14black400w),
                     const TextSpan(text: 'and '),
                     TextSpan(
                         text: 'PrivacyPolicy.',
-                        style: TextStyles.font14black400w),
+                        style: Styles.font14black400w),
                   ],
                 ),
               ),
@@ -133,13 +133,13 @@ class _SigninViewState extends State<SigninView> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Already have an account yet? ',
-                      style: TextStyles.font14black400w),
+                      style: Styles.font14black400w),
                   TextButton(
                       onPressed: () {
                         context.pushNameed(Routes.ksignupView);
                       },
                       child:
-                          Text('Sign Up ', style: TextStyles.font14blue400w)),
+                          Text('Sign Up ', style: Styles.font14blue400w)),
                 ],
               ),
               BlocListener<LoginCubit, LoginState>(
@@ -165,7 +165,7 @@ class _SigninViewState extends State<SigninView> {
                           ),
                           content: Text(
                             error,
-                            style: TextStyles.font16whitew600
+                            style: Styles.font16whitew600
                                 .copyWith(color: AppColors.red),
                           ),
                           actions: [
@@ -174,7 +174,7 @@ class _SigninViewState extends State<SigninView> {
                                 context.pop();
                               },
                               child: Text('GO it',
-                                  style: TextStyles.font14blue400w),
+                                  style: Styles.font14blue400w),
                             )
                           ],
                         ),

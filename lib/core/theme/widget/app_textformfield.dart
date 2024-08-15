@@ -29,7 +29,7 @@ final TextInputType? keyboardType;
       keyboardType:keyboardType ,
       decoration: InputDecoration(
           hintText: hint,
-          hintStyle: TextStyles.font14greye400w,
+          hintStyle: Styles.font14greye400w,
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.w, vertical: 17.h),
           enabledBorder: OutlineInputBorder(

@@ -2,7 +2,6 @@ import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -25,11 +24,11 @@ class HomeView extends StatelessWidget {
                   children: [
                     Text(
                       "Hi, Omar!",
-                      style: TextStyles.font18blackew700,
+                      style: Styles.font18blackew700,
                     ),
                     Text(
                       "How Are you Today?",
-                      style: TextStyles.font12greye400w,
+                      style: Styles.font12greye400w,
                     )
                   ],
                 ),
@@ -57,7 +56,54 @@ class HomeView extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
+          SizedBox(height: 8.h),
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 165.h,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.w,
+                  vertical: 16.h,
+                ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24.0),
+                    image: DecorationImage(
+                        image: AssetImage(Assets.images.background.path),
+                        fit: BoxFit.cover)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Book and\nschedule with\nnearest doctor",
+                      style: Styles.font18whiteew500,
+                    ),
+                    const Spacer(),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(48.0),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10.h, horizontal: 20.w)),
+                      child: Text('Find Nearby',
+                          style:
+                              Styles.font14blue400w.copyWith(fontSize: 12.sp,)),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                right: 8.w,
+                bottom: 0,
+                child: Image.asset(Assets.images.doc.path, height: 200.h),
+              ),
+            ],
+          ),
         ],
       ),
     )));
