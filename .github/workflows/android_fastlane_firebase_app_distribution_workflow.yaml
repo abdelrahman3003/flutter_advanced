@@ -17,7 +17,10 @@ jobs:
       with:
         java-version: '11.0.24'
         distribution: 'temurin'
-    
+
+    - name: Install Fastlane
+      run: gem install fastlane
+      
     - name: Install Flutter
       uses: subosito/flutter-action@v2
       with:
