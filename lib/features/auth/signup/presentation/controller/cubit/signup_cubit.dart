@@ -3,7 +3,6 @@ import 'package:clinic_system/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/constant/app_regex.dart';
 import 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {

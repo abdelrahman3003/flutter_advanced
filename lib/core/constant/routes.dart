@@ -16,7 +16,7 @@ class Routes {
   static const String kHomeView = '/homepage';
   static Route generateRoute(RouteSettings setting) {
     switch (setting.name) {
-      case "/":
+      case konboardingView:
         return MaterialPageRoute(builder: (context) => const OnboardingView());
       case ksignupView:
         return MaterialPageRoute(
@@ -31,7 +31,7 @@ class Routes {
                   child: const SigninView(),
                 ));
 
-      case kHomeView:
+      case "/":
         return MaterialPageRoute(builder: (context) => const HomeView());
       default:
         return MaterialPageRoute(
