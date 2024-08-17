@@ -25,14 +25,14 @@ class Routes {
                   create: (context) => getit<SignupCubit>(),
                   child: const SignupView(),
                 ));
-      case "/":
+      case ksinginView:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getit<LoginCubit>(),
                   child: const SigninView(),
                 ));
 
-      case kHomeView:
+      case "/":
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getit<HomeCubit>(),

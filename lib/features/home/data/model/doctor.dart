@@ -5,9 +5,7 @@ part 'doctor.g.dart';
 class Catergory {
   List<DoctorsList?>? data;
 
-  Catergory({
-    this.data,
-  });
+  Catergory({this.data});
 
   factory Catergory.fromJson(Map<String, dynamic> json) =>
       _$CatergoryFromJson(json);

@@ -25,5 +25,5 @@ abstract class ApiService {
 
 //fetch data home
   @GET(ApiConstants.home)
-  Future<DoctorsList> fetchDataHomeFromRepo();
+  Future<Catergory> fetchDataHomeFromRepo();
 }
