@@ -10,9 +10,9 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.loginRepo) : super(const LoginState.initial());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController emailController =
-      TextEditingController();
+      TextEditingController(text: 'temsah@gmail.com');
   TextEditingController passwordController =
-      TextEditingController();
+      TextEditingController(text: 'Abdo123456#');
   LoginRequsetBody? loginRequsetBody;
   bool hasLowerCase = false;
   bool hasUpperCase = false;

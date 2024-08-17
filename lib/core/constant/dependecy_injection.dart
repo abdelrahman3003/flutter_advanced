@@ -4,6 +4,8 @@ import 'package:clinic_system/features/auth/signIn/data/repos/login_repo.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
 import 'package:clinic_system/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_cubit.dart';
+import 'package:clinic_system/features/home/data/repos/home_repo.dart';
+import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -19,5 +21,8 @@ Future<void> setupGetit() async {
   getit.registerLazySingleton<SignupRepo>(() => SignupRepo(getit()));
   getit.registerLazySingleton<SignupCubit>(() => SignupCubit(getit()));
 
+//home
+  getit.registerLazySingleton<HomeRepo>(() => HomeRepo(getit()));
+  getit.registerLazySingleton<HomeCubit>(() => HomeCubit(getit()));
 
 }
