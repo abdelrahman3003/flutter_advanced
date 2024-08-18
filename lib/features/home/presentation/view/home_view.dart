@@ -1,19 +1,23 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_state.dart';
 import 'package:clinic_system/gen/assets.gen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/constant/dialogs.dart';
-
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int categoryId = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,31 +127,53 @@ class HomeView extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20.h),
-          SizedBox(
-            height: 100.h,
-            child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: CircleAvatar(
-                      backgroundColor: AppColors.grey4,
-                      radius: 30.h,
-                      child: SvgPicture.asset(
-                        Assets.icons.logo,
+          BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                success: (catergories) {
+                  return SizedBox(
+                    height: 120.h,
+                    child: ListView.builder(
+                      itemCount: catergories.data?.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Column(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  categoryId = index;
+                                });
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: AppColors.grey4,
+                                radius: 30.h,
+                                child: SvgPicture.asset(
+                                  Assets.icons.logo,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 10.h),
+                            SizedBox(
+                              width: 112.w,
+                              child: Text(
+                                "${catergories.data?[index]?.name}",
+                                style: Styles.font14black400w,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    "General",
-                    style: Styles.font14black400w,
-                  ),
-                ],
-              ),
-            ),
+                  );
+                },
+                orElse: () => const SizedBox.shrink(),
+              );
+            },
           ),
           SizedBox(height: 20.h),
           Row(
@@ -164,10 +190,10 @@ class HomeView extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                success: (data) {
+                success: (categories) {
                   return Expanded(
                     child: ListView.builder(
-                      itemCount: 6,
+                      itemCount: categories.data?[0]?.doctors?.length ?? 3,
                       itemBuilder: (context, index) => Padding(
                         padding: EdgeInsets.only(bottom: 10.h),
                         child: Row(
@@ -179,18 +205,23 @@ class HomeView extends StatelessWidget {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   image: DecorationImage(
-                                      image: AssetImage(
-                                          Assets.images.docContainer.path))),
+                                    image: CachedNetworkImageProvider(categories
+                                            .data![categoryId]
+                                            ?.doctors?[index]
+                                            ?.photo ??
+                                        "https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                                  )),
                             ),
                             SizedBox(width: 20.w),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Dr. Randy Wigham ",
+                                Text(
+                                    "${categories.data?[categoryId]?.doctors?[index]?.name}",
                                     style: Styles.font18blackew700
                                         .copyWith(fontSize: 15.sp)),
                                 SizedBox(height: 6.h),
-                                Text("General | RSUD Gatot Subroto",
+                                Text("${categories.data?[categoryId]?.name}",
                                     style: Styles.font14greye400w.copyWith(
                                         fontSize: 12.sp,
                                         color: AppColors.grey1)),
@@ -212,7 +243,7 @@ class HomeView extends StatelessWidget {
                     ),
                   );
                 },
-                error: (error) => erroDialog(context, error),
+                // error: (error) => erroDialog(context, error),
                 orElse: () => const SizedBox.shrink(),
               );
             },
