@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../core/network/sharded_pref.dart';
+
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
 
@@ -73,8 +75,10 @@ class OnboardingView extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 32),
               child: AppButton(
                 text: "Get Started",
-                onPressed: () {
+                onPressed: ()async {
                   context.pushNameed(Routes.ksignupView);
+                  await AppService.sharedPreferences
+                      .setString(ShardedPrefKey.step, "1");
                 },
               ))
         ],
