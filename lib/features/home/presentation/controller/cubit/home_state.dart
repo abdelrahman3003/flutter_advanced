@@ -9,11 +9,7 @@ class HomeState<T> with _$HomeState<T> {
 
   //homedataState
   const factory HomeState.loading() = Loading;
-  const factory HomeState.success(Catergories categories) = Success;
+  const factory HomeState.success(Catergories categories ,int index) = Success;
   const factory HomeState.error({required String error}) = Error;
 
-  //doctorState
-  const factory HomeState.doctorLoading() = DoctorLoading;
-  const factory HomeState.doctorSuccess(Catergories categories) = DoctorSuccess;
-  const factory HomeState.doctorError({required String error}) = DoctorError;
 }

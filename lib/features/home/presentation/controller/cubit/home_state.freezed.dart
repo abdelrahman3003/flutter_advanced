@@ -20,33 +20,24 @@ mixin _$HomeState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
+    required TResult Function(Catergories categories, int index) success,
     required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
+    TResult? Function(Catergories categories, int index)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
+    TResult Function(Catergories categories, int index)? success,
     TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,9 +47,6 @@ mixin _$HomeState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,9 +55,6 @@ mixin _$HomeState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,9 +63,6 @@ mixin _$HomeState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,11 +132,8 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
+    required TResult Function(Catergories categories, int index) success,
     required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
   }) {
     return initial();
   }
@@ -164,11 +143,8 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
+    TResult? Function(Catergories categories, int index)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
   }) {
     return initial?.call();
   }
@@ -178,11 +154,8 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
+    TResult Function(Catergories categories, int index)? success,
     TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -198,9 +171,6 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
   }) {
     return initial(this);
   }
@@ -212,9 +182,6 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
   }) {
     return initial?.call(this);
   }
@@ -226,9 +193,6 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -288,11 +252,8 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
+    required TResult Function(Catergories categories, int index) success,
     required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
   }) {
     return loading();
   }
@@ -302,11 +263,8 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
+    TResult? Function(Catergories categories, int index)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
   }) {
     return loading?.call();
   }
@@ -316,11 +274,8 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
+    TResult Function(Catergories categories, int index)? success,
     TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -336,9 +291,6 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
   }) {
     return loading(this);
   }
@@ -350,9 +302,6 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
   }) {
     return loading?.call(this);
   }
@@ -364,9 +313,6 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -386,7 +332,7 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({Catergories categories});
+  $Res call({Catergories categories, int index});
 }
 
 /// @nodoc
@@ -401,12 +347,17 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   @override
   $Res call({
     Object? categories = null,
+    Object? index = null,
   }) {
     return _then(_$SuccessImpl<T>(
       null == categories
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as Catergories,
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -414,14 +365,16 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
-  const _$SuccessImpl(this.categories);
+  const _$SuccessImpl(this.categories, this.index);
 
   @override
   final Catergories categories;
+  @override
+  final int index;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState<$T>.success(categories: $categories)';
+    return 'HomeState<$T>.success(categories: $categories, index: $index)';
   }
 
   @override
@@ -429,7 +382,8 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomeState<$T>.success'))
-      ..add(DiagnosticsProperty('categories', categories));
+      ..add(DiagnosticsProperty('categories', categories))
+      ..add(DiagnosticsProperty('index', index));
   }
 
   @override
@@ -438,11 +392,12 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
             (identical(other.categories, categories) ||
-                other.categories == categories));
+                other.categories == categories) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categories);
+  int get hashCode => Object.hash(runtimeType, categories, index);
 
   @JsonKey(ignore: true)
   @override
@@ -455,13 +410,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
+    required TResult Function(Catergories categories, int index) success,
     required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
   }) {
-    return success(categories);
+    return success(categories, index);
   }
 
   @override
@@ -469,13 +421,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
+    TResult? Function(Catergories categories, int index)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
   }) {
-    return success?.call(categories);
+    return success?.call(categories, index);
   }
 
   @override
@@ -483,15 +432,12 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
+    TResult Function(Catergories categories, int index)? success,
     TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(categories);
+      return success(categories, index);
     }
     return orElse();
   }
@@ -503,9 +449,6 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
   }) {
     return success(this);
   }
@@ -517,9 +460,6 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
   }) {
     return success?.call(this);
   }
@@ -531,9 +471,6 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -544,9 +481,11 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
 }
 
 abstract class Success<T> implements HomeState<T> {
-  const factory Success(final Catergories categories) = _$SuccessImpl<T>;
+  const factory Success(final Catergories categories, final int index) =
+      _$SuccessImpl<T>;
 
   Catergories get categories;
+  int get index;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -626,11 +565,8 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
+    required TResult Function(Catergories categories, int index) success,
     required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
   }) {
     return error(this.error);
   }
@@ -640,11 +576,8 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
+    TResult? Function(Catergories categories, int index)? success,
     TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
   }) {
     return error?.call(this.error);
   }
@@ -654,11 +587,8 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
+    TResult Function(Catergories categories, int index)? success,
     TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -674,9 +604,6 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
   }) {
     return error(this);
   }
@@ -688,9 +615,6 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
   }) {
     return error?.call(this);
   }
@@ -702,9 +626,6 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -720,496 +641,5 @@ abstract class Error<T> implements HomeState<T> {
   String get error;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DoctorLoadingImplCopyWith<T, $Res> {
-  factory _$$DoctorLoadingImplCopyWith(_$DoctorLoadingImpl<T> value,
-          $Res Function(_$DoctorLoadingImpl<T>) then) =
-      __$$DoctorLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$DoctorLoadingImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$DoctorLoadingImpl<T>>
-    implements _$$DoctorLoadingImplCopyWith<T, $Res> {
-  __$$DoctorLoadingImplCopyWithImpl(_$DoctorLoadingImpl<T> _value,
-      $Res Function(_$DoctorLoadingImpl<T>) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$DoctorLoadingImpl<T>
-    with DiagnosticableTreeMixin
-    implements DoctorLoading<T> {
-  const _$DoctorLoadingImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState<$T>.doctorLoading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'HomeState<$T>.doctorLoading'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DoctorLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
-    required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
-  }) {
-    return doctorLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
-    TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
-  }) {
-    return doctorLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
-    TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorLoading != null) {
-      return doctorLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
-  }) {
-    return doctorLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
-  }) {
-    return doctorLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorLoading != null) {
-      return doctorLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DoctorLoading<T> implements HomeState<T> {
-  const factory DoctorLoading() = _$DoctorLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$DoctorSuccessImplCopyWith<T, $Res> {
-  factory _$$DoctorSuccessImplCopyWith(_$DoctorSuccessImpl<T> value,
-          $Res Function(_$DoctorSuccessImpl<T>) then) =
-      __$$DoctorSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({Catergories categories});
-}
-
-/// @nodoc
-class __$$DoctorSuccessImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$DoctorSuccessImpl<T>>
-    implements _$$DoctorSuccessImplCopyWith<T, $Res> {
-  __$$DoctorSuccessImplCopyWithImpl(_$DoctorSuccessImpl<T> _value,
-      $Res Function(_$DoctorSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? categories = null,
-  }) {
-    return _then(_$DoctorSuccessImpl<T>(
-      null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as Catergories,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DoctorSuccessImpl<T>
-    with DiagnosticableTreeMixin
-    implements DoctorSuccess<T> {
-  const _$DoctorSuccessImpl(this.categories);
-
-  @override
-  final Catergories categories;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState<$T>.doctorSuccess(categories: $categories)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeState<$T>.doctorSuccess'))
-      ..add(DiagnosticsProperty('categories', categories));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DoctorSuccessImpl<T> &&
-            (identical(other.categories, categories) ||
-                other.categories == categories));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, categories);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DoctorSuccessImplCopyWith<T, _$DoctorSuccessImpl<T>> get copyWith =>
-      __$$DoctorSuccessImplCopyWithImpl<T, _$DoctorSuccessImpl<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
-    required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
-  }) {
-    return doctorSuccess(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
-    TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
-  }) {
-    return doctorSuccess?.call(categories);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
-    TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorSuccess != null) {
-      return doctorSuccess(categories);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
-  }) {
-    return doctorSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
-  }) {
-    return doctorSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorSuccess != null) {
-      return doctorSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DoctorSuccess<T> implements HomeState<T> {
-  const factory DoctorSuccess(final Catergories categories) =
-      _$DoctorSuccessImpl<T>;
-
-  Catergories get categories;
-  @JsonKey(ignore: true)
-  _$$DoctorSuccessImplCopyWith<T, _$DoctorSuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$DoctorErrorImplCopyWith<T, $Res> {
-  factory _$$DoctorErrorImplCopyWith(_$DoctorErrorImpl<T> value,
-          $Res Function(_$DoctorErrorImpl<T>) then) =
-      __$$DoctorErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$DoctorErrorImplCopyWithImpl<T, $Res>
-    extends _$HomeStateCopyWithImpl<T, $Res, _$DoctorErrorImpl<T>>
-    implements _$$DoctorErrorImplCopyWith<T, $Res> {
-  __$$DoctorErrorImplCopyWithImpl(
-      _$DoctorErrorImpl<T> _value, $Res Function(_$DoctorErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$DoctorErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DoctorErrorImpl<T>
-    with DiagnosticableTreeMixin
-    implements DoctorError<T> {
-  const _$DoctorErrorImpl({required this.error});
-
-  @override
-  final String error;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState<$T>.doctorError(error: $error)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeState<$T>.doctorError'))
-      ..add(DiagnosticsProperty('error', error));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DoctorErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DoctorErrorImplCopyWith<T, _$DoctorErrorImpl<T>> get copyWith =>
-      __$$DoctorErrorImplCopyWithImpl<T, _$DoctorErrorImpl<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Catergories categories) success,
-    required TResult Function(String error) error,
-    required TResult Function() doctorLoading,
-    required TResult Function(Catergories categories) doctorSuccess,
-    required TResult Function(String error) doctorError,
-  }) {
-    return doctorError(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(Catergories categories)? success,
-    TResult? Function(String error)? error,
-    TResult? Function()? doctorLoading,
-    TResult? Function(Catergories categories)? doctorSuccess,
-    TResult? Function(String error)? doctorError,
-  }) {
-    return doctorError?.call(this.error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Catergories categories)? success,
-    TResult Function(String error)? error,
-    TResult Function()? doctorLoading,
-    TResult Function(Catergories categories)? doctorSuccess,
-    TResult Function(String error)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorError != null) {
-      return doctorError(this.error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(Loading<T> value) loading,
-    required TResult Function(Success<T> value) success,
-    required TResult Function(Error<T> value) error,
-    required TResult Function(DoctorLoading<T> value) doctorLoading,
-    required TResult Function(DoctorSuccess<T> value) doctorSuccess,
-    required TResult Function(DoctorError<T> value) doctorError,
-  }) {
-    return doctorError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(Loading<T> value)? loading,
-    TResult? Function(Success<T> value)? success,
-    TResult? Function(Error<T> value)? error,
-    TResult? Function(DoctorLoading<T> value)? doctorLoading,
-    TResult? Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult? Function(DoctorError<T> value)? doctorError,
-  }) {
-    return doctorError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(Loading<T> value)? loading,
-    TResult Function(Success<T> value)? success,
-    TResult Function(Error<T> value)? error,
-    TResult Function(DoctorLoading<T> value)? doctorLoading,
-    TResult Function(DoctorSuccess<T> value)? doctorSuccess,
-    TResult Function(DoctorError<T> value)? doctorError,
-    required TResult orElse(),
-  }) {
-    if (doctorError != null) {
-      return doctorError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DoctorError<T> implements HomeState<T> {
-  const factory DoctorError({required final String error}) =
-      _$DoctorErrorImpl<T>;
-
-  String get error;
-  @JsonKey(ignore: true)
-  _$$DoctorErrorImplCopyWith<T, _$DoctorErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

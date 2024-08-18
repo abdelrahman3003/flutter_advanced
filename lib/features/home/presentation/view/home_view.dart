@@ -9,17 +9,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  int categoryId = 0;
-  @override
   Widget build(BuildContext context) {
+    var cubit = context.read<HomeCubit>();
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -128,9 +123,10 @@ class _HomeViewState extends State<HomeView> {
           ),
           SizedBox(height: 20.h),
           BlocBuilder<HomeCubit, HomeState>(
+            buildWhen: (previous, current) => current is Success,
             builder: (context, state) {
               return state.maybeWhen(
-                success: (catergories) {
+                success: (catergories, categoryid) {
                   return SizedBox(
                     height: 120.h,
                     child: ListView.builder(
@@ -142,12 +138,12 @@ class _HomeViewState extends State<HomeView> {
                           children: [
                             InkWell(
                               onTap: () {
-                                setState(() {
-                                  categoryId = index;
-                                });
+                                cubit.changeCategory(index);
                               },
                               child: CircleAvatar(
-                                backgroundColor: AppColors.grey4,
+                                backgroundColor: categoryid == index
+                                    ? AppColors.grey2
+                                    : AppColors.grey4,
                                 radius: 30.h,
                                 child: SvgPicture.asset(
                                   Assets.icons.logo,
@@ -171,6 +167,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   );
                 },
+                loading: () => const Center(child: CircularProgressIndicator()),
                 orElse: () => const SizedBox.shrink(),
               );
             },
@@ -185,12 +182,11 @@ class _HomeViewState extends State<HomeView> {
           ),
           SizedBox(height: 20.h),
           BlocBuilder<HomeCubit, HomeState>(
-            buildWhen: (previous, current) =>
-                current is Loading || current is Success || current is Error,
             builder: (context, state) {
               return state.maybeWhen(
-                loading: () => const Center(child: CircularProgressIndicator()),
-                success: (categories) {
+                loading: () => const Expanded(
+                    child: Center(child: CircularProgressIndicator())),
+                success: (categories, categoryId) {
                   return Expanded(
                     child: ListView.builder(
                       itemCount: categories.data?[0]?.doctors?.length ?? 3,
@@ -244,6 +240,7 @@ class _HomeViewState extends State<HomeView> {
                   );
                 },
                 // error: (error) => erroDialog(context, error),
+
                 orElse: () => const SizedBox.shrink(),
               );
             },
