@@ -123,8 +123,7 @@ class _SigninViewState extends State<SigninView> {
                         style: Styles.font14black400w),
                     const TextSpan(text: 'and '),
                     TextSpan(
-                        text: 'PrivacyPolicy.',
-                        style: Styles.font14black400w),
+                        text: 'PrivacyPolicy.', style: Styles.font14black400w),
                   ],
                 ),
               ),
@@ -138,8 +137,7 @@ class _SigninViewState extends State<SigninView> {
                       onPressed: () {
                         context.pushNameed(Routes.ksignupView);
                       },
-                      child:
-                          Text('Sign Up ', style: Styles.font14blue400w)),
+                      child: Text('Sign Up ', style: Styles.font14blue400w)),
                 ],
               ),
               BlocListener<LoginCubit, LoginState>(
@@ -173,8 +171,8 @@ class _SigninViewState extends State<SigninView> {
                               onPressed: () {
                                 context.pop();
                               },
-                              child: Text('GO it',
-                                  style: Styles.font14blue400w),
+                              child:
+                                  Text('GO it', style: Styles.font14blue400w),
                             )
                           ],
                         ),
@@ -182,7 +180,7 @@ class _SigninViewState extends State<SigninView> {
                     },
                     success: (data) {
                       context.pop();
-                      context.pushNameed(Routes.kHomeView);
+                            context.pushNameed(Routes.kHomeView);
                     },
                   );
                 },

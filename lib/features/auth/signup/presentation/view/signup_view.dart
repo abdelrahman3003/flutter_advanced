@@ -1,4 +1,5 @@
 import 'package:clinic_system/core/class/navigator.dart';
+import 'package:clinic_system/core/constant/dialogs.dart';
 import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_cubit.dart';
 import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_state.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,6 @@ class _SignupViewState extends State<SignupView> {
                   return null;
                 },
               ),
-     
               SizedBox(height: 16.h),
               AppTextformfield(
                 controller: cubit.passwordController,
@@ -193,8 +193,7 @@ class _SignupViewState extends State<SignupView> {
                         style: Styles.font14black400w),
                     const TextSpan(text: 'and '),
                     TextSpan(
-                        text: 'PrivacyPolicy.',
-                        style: Styles.font14black400w),
+                        text: 'PrivacyPolicy.', style: Styles.font14black400w),
                   ],
                 ),
               ),
@@ -227,30 +226,11 @@ class _SignupViewState extends State<SignupView> {
                       context.pop();
                       showDialog(
                         context: context,
-                        builder: (context) => AlertDialog(
-                          icon: const Icon(
-                            Icons.error,
-                            color: AppColors.red,
-                            size: 32,
-                          ),
-                          content: Text(
-                            error,
-                            style: Styles.font16whitew600
-                                .copyWith(color: AppColors.red),
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                context.pop();
-                              },
-                              child: Text('GO it',
-                                  style: Styles.font14blue400w),
-                            )
-                          ],
-                        ),
+                        builder: (context) => erroDialog(context, error)
                       );
                     },
                     success: (data) {
+                      
                       context.pop();
                       context.pushNameed(Routes.kHomeView);
                     },

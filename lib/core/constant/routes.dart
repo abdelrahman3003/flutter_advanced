@@ -3,6 +3,7 @@ import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit
 import 'package:clinic_system/features/auth/signIn/presentation/view/signIn_view.dart';
 import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_cubit.dart';
 import 'package:clinic_system/features/auth/signup/presentation/view/signup_view.dart';
+import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:clinic_system/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,11 @@ class Routes {
                 ));
 
       case "/":
-        return MaterialPageRoute(builder: (context) => const HomeView());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => getit<HomeCubit>(),
+                  child: const HomeView(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
