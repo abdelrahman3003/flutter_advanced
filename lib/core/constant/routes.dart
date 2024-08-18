@@ -32,7 +32,7 @@ class Routes {
                   child: const SigninView(),
                 ));
 
-      case "/":
+      case kHomeView:
         return MaterialPageRoute(
             builder: (context) => BlocProvider(
                   create: (context) => getit<HomeCubit>(),

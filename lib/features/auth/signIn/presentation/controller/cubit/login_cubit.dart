@@ -1,4 +1,6 @@
 import 'package:clinic_system/core/constant/app_regex.dart';
+import 'package:clinic_system/core/network/dio_factory.dart';
+import 'package:clinic_system/core/network/sharded_pref.dart';
 import 'package:clinic_system/features/auth/signIn/data/model/login_requset_body.dart';
 import 'package:clinic_system/features/auth/signIn/data/repos/login_repo.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_state.dart';
@@ -47,7 +49,12 @@ class LoginCubit extends Cubit<LoginState> {
       emit(const LoginState.loading());
       var response = await loginRepo.login(loginRequsetBody!);
       response.when(
-          sucess: (data) {
+          sucess: (data) async {
+            await AppService.sharedPreferences
+                .setString(ShardedPrefKey.userToken, data.userData!.token!);
+            DioFactory.addDioHEaders();
+            await AppService.sharedPreferences
+                .setString(ShardedPrefKey.step, "2");
             emit(LoginState.success(data));
           },
           failure: (errorHandler) => emit(

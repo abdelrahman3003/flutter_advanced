@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clinic_system/core/network/sharded_pref.dart';
 import 'package:clinic_system/core/theme/colors.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
@@ -47,8 +48,13 @@ class HomeView extends StatelessWidget {
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
-                      SvgPicture.asset(
-                        Assets.icons.notification,
+                      InkWell(
+                        onTap: () {
+                          AppService.sharedPreferences.clear();
+                        },
+                        child: SvgPicture.asset(
+                          Assets.icons.notification,
+                        ),
                       ),
                       Positioned(
                         top: -1.7,
