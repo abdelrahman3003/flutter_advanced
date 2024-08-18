@@ -6,7 +6,7 @@ part of 'doctor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Catergory _$CatergoryFromJson(Map<String, dynamic> json) => Catergory(
+Catergories _$CatergoriesFromJson(Map<String, dynamic> json) => Catergories(
       data: (json['data'] as List<dynamic>?)
           ?.map((e) => e == null
               ? null
@@ -14,7 +14,8 @@ Catergory _$CatergoryFromJson(Map<String, dynamic> json) => Catergory(
           .toList(),
     );
 
-Map<String, dynamic> _$CatergoryToJson(Catergory instance) => <String, dynamic>{
+Map<String, dynamic> _$CatergoriesToJson(Catergories instance) =>
+    <String, dynamic>{
       'data': instance.data,
     };
 
@@ -23,9 +24,9 @@ DoctorsList _$DoctorsListFromJson(Map<String, dynamic> json) => DoctorsList(
           ?.map((e) =>
               e == null ? null : Doctor.fromJson(e as Map<String, dynamic>))
           .toList(),
-    )
-      ..id = (json['id'] as num?)?.toInt()
-      ..name = json['name'] as String?;
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+    );
 
 Map<String, dynamic> _$DoctorsListToJson(DoctorsList instance) =>
     <String, dynamic>{

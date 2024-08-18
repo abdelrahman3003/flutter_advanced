@@ -6,7 +6,7 @@ import 'package:clinic_system/features/home/data/model/doctor.dart';
  class HomeRepo {
   final ApiService apiService;
   HomeRepo(this.apiService);
-  Future<ApiResult<Catergory>> fetchData() async {
+  Future<ApiResult<Catergories>> fetchData() async {
     try {
       final response = await apiService.fetchDataHomeFromRepo();
       return ApiResult.sucess(response);

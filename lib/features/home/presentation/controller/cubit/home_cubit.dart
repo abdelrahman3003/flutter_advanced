@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:clinic_system/features/home/data/repos/home_repo.dart';
+import 'package:flutter/src/foundation/annotations.dart';
 
 import 'home_state.dart';
 
@@ -13,8 +14,8 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.loading());
     var response = await homeRepo.fetchData();
     response.when(
-        sucess: (data) {
-          emit(HomeState.success(data));
+        sucess: (categoreis) {
+          emit(HomeState.success(categoreis));
         },
         failure: (errorHandler) => emit(
               HomeState.error(error: errorHandler.apiErrorModel.message ?? ""),

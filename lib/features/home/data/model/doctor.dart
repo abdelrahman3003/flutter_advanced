@@ -2,13 +2,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'doctor.g.dart';
 
 @JsonSerializable()
-class Catergory {
+class Catergories {
   List<DoctorsList?>? data;
 
-  Catergory({this.data});
+  Catergories({this.data});
 
-  factory Catergory.fromJson(Map<String, dynamic> json) =>
-      _$CatergoryFromJson(json);
+  factory Catergories.fromJson(Map<String, dynamic> json) =>
+      _$CatergoriesFromJson(json);
 }
 
 @JsonSerializable()
@@ -17,7 +17,7 @@ class DoctorsList {
   String? name;
   List<Doctor?>? doctors;
 
-  DoctorsList({this.doctors});
+  DoctorsList({this.doctors, this.id, this.name});
 
   factory DoctorsList.fromJson(Map<String, dynamic> json) =>
       _$DoctorsListFromJson(json);

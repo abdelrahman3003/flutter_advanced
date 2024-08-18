@@ -3,6 +3,7 @@ import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_state.dart';
 import 'package:clinic_system/gen/assets.gen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -163,51 +164,54 @@ class HomeView extends StatelessWidget {
             builder: (context, state) {
               return state.maybeWhen(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                success: (data) => Expanded(
-                  child: ListView.builder(
-                    itemCount: 6,
-                    itemBuilder: (context, index) => Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 110.w,
-                            height: 110.h,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                image: DecorationImage(
-                                    image: AssetImage(
-                                        Assets.images.docContainer.path))),
-                          ),
-                          SizedBox(width: 20.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Dr. Randy Wigham ",
-                                  style: Styles.font18blackew700
-                                      .copyWith(fontSize: 15.sp)),
-                              SizedBox(height: 6.h),
-                              Text("General | RSUD Gatot Subroto",
-                                  style: Styles.font14greye400w.copyWith(
-                                      fontSize: 12.sp, color: AppColors.grey1)),
-                              SizedBox(height: 6.h),
-                              Row(
-                                children: [
-                                  SvgPicture.asset(Assets.icons.magicStar),
-                                  Text(" 4.8 (4,279 reviews)",
-                                      style: Styles.font14greye400w.copyWith(
-                                          fontSize: 12.sp,
-                                          color: AppColors.grey1)),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
+                success: (data) {
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: 6,
+                      itemBuilder: (context, index) => Padding(
+                        padding: EdgeInsets.only(bottom: 10.h),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 110.w,
+                              height: 110.h,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          Assets.images.docContainer.path))),
+                            ),
+                            SizedBox(width: 20.w),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Dr. Randy Wigham ",
+                                    style: Styles.font18blackew700
+                                        .copyWith(fontSize: 15.sp)),
+                                SizedBox(height: 6.h),
+                                Text("General | RSUD Gatot Subroto",
+                                    style: Styles.font14greye400w.copyWith(
+                                        fontSize: 12.sp,
+                                        color: AppColors.grey1)),
+                                SizedBox(height: 6.h),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(Assets.icons.magicStar),
+                                    Text(" 4.8 (4,279 reviews)",
+                                        style: Styles.font14greye400w.copyWith(
+                                            fontSize: 12.sp,
+                                            color: AppColors.grey1)),
+                                  ],
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
                 error: (error) => erroDialog(context, error),
                 orElse: () => const SizedBox.shrink(),
               );
