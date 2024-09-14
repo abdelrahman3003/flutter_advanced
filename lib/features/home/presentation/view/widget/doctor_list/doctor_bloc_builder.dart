@@ -1,3 +1,4 @@
+import 'package:clinic_system/features/home/presentation/view/widget/doctor_list/doctors_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,8 +14,7 @@ class DoctorBlocBuilder extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.maybeWhen(
-          loading: () =>
-              const Expanded(child: Center(child: CircularProgressIndicator())),
+          loading: () => const DoctorsShimmerLoading(),
           success: (categories, categoryId) {
             return Expanded(
                 child: DoctorList(

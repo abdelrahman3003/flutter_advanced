@@ -19,24 +19,22 @@ class SpecialityShimmerLoading extends StatelessWidget {
             child: Column(
               children: [
                 Shimmer.fromColors(
-                  baseColor: AppColors.grey4,
+                  baseColor: AppColors.grey2,
                   highlightColor: Colors.white,
-                  child: const CircleAvatar(radius: 28),
+                  child: CircleAvatar(radius: 30.h),
                 ),
-                SizedBox(height: 10.h),
-                SizedBox(
-                  width: 100,
-                  child: Shimmer.fromColors(
-                      baseColor: AppColors.red,
-                      highlightColor: Colors.black,
-                      child: Container(
-                        height: 10  .h,
-                        width: 50.w,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      )),
-                )
+                SizedBox(height: 20.h),
+                Shimmer.fromColors(
+                    baseColor: AppColors.grey2,
+                    highlightColor: Colors.white,
+                    child: Container(
+                      height: 10.h,
+                      width: 50.w,
+                      decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ))
               ],
             ),
           );
