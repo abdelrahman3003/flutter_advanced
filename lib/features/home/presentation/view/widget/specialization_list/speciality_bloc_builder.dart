@@ -1,4 +1,5 @@
 import 'package:clinic_system/features/home/presentation/view/widget/specialization_list/speciality_list.dart';
+import 'package:clinic_system/features/home/presentation/view/widget/specialization_list/speciality_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,12 +17,10 @@ class SpecialityBlocBuilder extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           success: (catergories, categoryid) {
-            return SizedBox(
-                height: 120.h,
-                child: SpecialityList(
-                    catergories: catergories, categorySelected: categoryid));
+            return SpecialityList(
+                catergories: catergories, categorySelected: categoryid);
           },
-          loading: () => const Center(child: CircularProgressIndicator()),
+          loading: () => const SpecialityShimmerLoading(),
           orElse: () => const SizedBox.shrink(),
         );
       },
