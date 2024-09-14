@@ -19,7 +19,7 @@ abstract class ApiService {
     @Body() LoginRequsetBody loginRequsetBody,
   );
   @POST(ApiConstants.register)
-  Future<SignupResponse> signUp(
+  Future<SignupResponse> signUp(   
     @Body() SignupRequestBody signupRequestBody,
   );
 
