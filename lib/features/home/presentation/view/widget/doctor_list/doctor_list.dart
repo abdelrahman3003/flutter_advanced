@@ -4,16 +4,24 @@ import 'package:flutter/material.dart';
 import 'doctor_list_item.dart';
 
 class DoctorList extends StatelessWidget {
-  const DoctorList({super.key, required this.categories, required this.categorySelected});
-  final Catergories categories;
-  final int categorySelected;
+  const DoctorList(
+      {super.key, required this.doctorList});
+  final List<Doctor?> doctorList;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: categories.data?[0]?.doctors?.length ?? 3,
+    return NotificationListener<ScrollNotification>(
+      onNotification: (notification) {
+        if (notification is ScrollEndNotification &&
+            notification.metrics.extentAfter == 0) {}
+        return false;
+      },
+      child: ListView.builder(
+        itemCount: doctorList.length,
         itemBuilder: (context, index) => DoctorListItem(
-            name: "${categories.data?[categorySelected]?.name}",
-            image: categories.data![categorySelected]?.doctors?[index]?.photo,
-            categoryName: "${categories.data?[categorySelected]?.name}"));
+            name: "${doctorList[index]?.name}",
+            image: doctorList[index]?.photo,
+            categoryName: "${doctorList[index]?.specialization?.name}"),
+      ),
+    );
   }
 }

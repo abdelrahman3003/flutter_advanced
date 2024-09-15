@@ -9,14 +9,17 @@ class HomeCubit extends Cubit<HomeState> {
     fetchData();
   }
   final HomeRepo homeRepo;
-  Catergories? dcatergories;
+  late List<Category?>? catergoriesList;
+  List<Doctor?>? doctorsList;
+  int categorySelected = 0;
   void fetchData() async {
     emit(const HomeState.loading());
     var response = await homeRepo.fetchData();
     response.when(
-        sucess: (catergories) {
-          dcatergories = catergories;
-          emit(HomeState.success(catergories, 0));
+        sucess: (homerespose) {
+          catergoriesList = homerespose.data;
+          doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
+          emit(HomeState.success(catergoriesList?[categorySelected]));
         },
         failure: (errorHandler) => emit(
               HomeState.error(error: errorHandler.apiErrorModel.message ?? ""),
@@ -24,6 +27,10 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   changeCategory(int index) {
-    emit(HomeState.success(dcatergories!, index));
+    categorySelected = index;
+    doctorsList = catergoriesList?[categorySelected]?.doctors;
+    emit(HomeState.success(catergoriesList?[index]));
   }
+
+  moreData(int index) {}
 }

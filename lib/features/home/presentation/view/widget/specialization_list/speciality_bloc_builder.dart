@@ -11,13 +11,16 @@ class SpecialityBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<HomeCubit>();
+
     return BlocBuilder<HomeCubit, HomeState>(
       buildWhen: (previous, current) => current is Success,
       builder: (context, state) {
         return state.maybeWhen(
-          success: (catergories, categoryid) {
+          success: (catergory) {
             return SpecialityList(
-                catergories: catergories, categorySelected: categoryid);
+                catergories: cubit.catergoriesList,
+                categorySelected: cubit.categorySelected);
           },
           loading: () => const SpecialityShimmerLoading(),
           orElse: () => const SizedBox.shrink(),

@@ -10,6 +10,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        itemCount: 5,
         itemBuilder: (context, index) => Padding(
           padding: EdgeInsets.only(bottom: 10.h),
           child: Row(

@@ -11,14 +11,15 @@ class DoctorBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<HomeCubit>();
+
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.maybeWhen(
           loading: () => const DoctorsShimmerLoading(),
-          success: (categories, categoryId) {
+          success: (category) {
             return Expanded(
-                child: DoctorList(
-                    categories: categories, categorySelected: categoryId));
+                child: DoctorList(doctorList: cubit.doctorsList ?? []));
           },
           // error: (error) => erroDialog(context, error),
 

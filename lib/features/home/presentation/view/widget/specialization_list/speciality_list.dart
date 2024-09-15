@@ -8,8 +8,9 @@ import '../../../../../../gen/assets.gen.dart';
 import '../../../controller/cubit/home_cubit.dart';
 
 class SpecialityList extends StatelessWidget {
-  const SpecialityList({super.key, required this.catergories, required this.categorySelected});
-  final Catergories catergories;
+  const SpecialityList(
+      {super.key, required this.catergories, required this.categorySelected});
+  final List<Category?>? catergories;
   final int categorySelected;
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,10 @@ class SpecialityList extends StatelessWidget {
     return SizedBox(
       height: 120.h,
       child: ListView.builder(
-          itemCount: catergories.data?.length,
+          itemCount: catergories?.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => SpecialityListItem(
-                title: "${catergories.data?[index]?.name}",
+                title: catergories?[index]?.name ?? "",
                 image: Assets.icons.logo,
                 isSelected: categorySelected == index,
                 onTap: () {

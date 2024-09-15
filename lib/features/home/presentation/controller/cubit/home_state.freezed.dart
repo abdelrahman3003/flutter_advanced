@@ -20,7 +20,7 @@ mixin _$HomeState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories, int index) success,
+    required TResult Function(Category? category) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$HomeState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories, int index)? success,
+    TResult? Function(Category? category)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$HomeState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories, int index)? success,
+    TResult Function(Category? category)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -104,18 +104,12 @@ class __$$InitialImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
+class _$InitialImpl<T> implements _Initial<T> {
   const _$InitialImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeState<$T>.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'HomeState<$T>.initial'));
   }
 
   @override
@@ -132,7 +126,7 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories, int index) success,
+    required TResult Function(Category? category) success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -143,7 +137,7 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories, int index)? success,
+    TResult? Function(Category? category)? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -154,7 +148,7 @@ class _$InitialImpl<T> with DiagnosticableTreeMixin implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories, int index)? success,
+    TResult Function(Category? category)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -224,18 +218,12 @@ class __$$LoadingImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
+class _$LoadingImpl<T> implements Loading<T> {
   const _$LoadingImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeState<$T>.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'HomeState<$T>.loading'));
   }
 
   @override
@@ -252,7 +240,7 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories, int index) success,
+    required TResult Function(Category? category) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -263,7 +251,7 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories, int index)? success,
+    TResult? Function(Category? category)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -274,7 +262,7 @@ class _$LoadingImpl<T> with DiagnosticableTreeMixin implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories, int index)? success,
+    TResult Function(Category? category)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -332,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({Catergories categories, int index});
+  $Res call({Category? category});
 }
 
 /// @nodoc
@@ -346,44 +334,28 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? categories = null,
-    Object? index = null,
+    Object? category = freezed,
   }) {
     return _then(_$SuccessImpl<T>(
-      null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as Catergories,
-      null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
+      freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
-  const _$SuccessImpl(this.categories, this.index);
+class _$SuccessImpl<T> implements Success<T> {
+  const _$SuccessImpl(this.category);
 
   @override
-  final Catergories categories;
-  @override
-  final int index;
+  final Category? category;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState<$T>.success(categories: $categories, index: $index)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeState<$T>.success'))
-      ..add(DiagnosticsProperty('categories', categories))
-      ..add(DiagnosticsProperty('index', index));
+  String toString() {
+    return 'HomeState<$T>.success(category: $category)';
   }
 
   @override
@@ -391,13 +363,12 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
-            (identical(other.categories, categories) ||
-                other.categories == categories) &&
-            (identical(other.index, index) || other.index == index));
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, categories, index);
+  int get hashCode => Object.hash(runtimeType, category);
 
   @JsonKey(ignore: true)
   @override
@@ -410,10 +381,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories, int index) success,
+    required TResult Function(Category? category) success,
     required TResult Function(String error) error,
   }) {
-    return success(categories, index);
+    return success(category);
   }
 
   @override
@@ -421,10 +392,10 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories, int index)? success,
+    TResult? Function(Category? category)? success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(categories, index);
+    return success?.call(category);
   }
 
   @override
@@ -432,12 +403,12 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories, int index)? success,
+    TResult Function(Category? category)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(categories, index);
+      return success(category);
     }
     return orElse();
   }
@@ -481,11 +452,9 @@ class _$SuccessImpl<T> with DiagnosticableTreeMixin implements Success<T> {
 }
 
 abstract class Success<T> implements HomeState<T> {
-  const factory Success(final Catergories categories, final int index) =
-      _$SuccessImpl<T>;
+  const factory Success(final Category? category) = _$SuccessImpl<T>;
 
-  Catergories get categories;
-  int get index;
+  Category? get category;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -524,23 +493,15 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
+class _$ErrorImpl<T> implements Error<T> {
   const _$ErrorImpl({required this.error});
 
   @override
   final String error;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeState<$T>.error(error: $error)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeState<$T>.error'))
-      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -565,7 +526,7 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Catergories categories, int index) success,
+    required TResult Function(Category? category) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -576,7 +537,7 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Catergories categories, int index)? success,
+    TResult? Function(Category? category)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -587,7 +548,7 @@ class _$ErrorImpl<T> with DiagnosticableTreeMixin implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Catergories categories, int index)? success,
+    TResult Function(Category? category)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
