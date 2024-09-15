@@ -12,6 +12,8 @@ class HomeCubit extends Cubit<HomeState> {
   late List<Category?>? catergoriesList;
   List<Doctor?>? doctorsList;
   int categorySelected = 0;
+  bool isScrollMax = false;
+
   void fetchData() async {
     emit(const HomeState.loading());
     var response = await homeRepo.fetchData();
@@ -19,7 +21,7 @@ class HomeCubit extends Cubit<HomeState> {
         sucess: (homerespose) {
           catergoriesList = homerespose.data;
           doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
-          emit(HomeState.success(catergoriesList?[categorySelected]));
+          emit(HomeState.success(doctorsList));
         },
         failure: (errorHandler) => emit(
               HomeState.error(error: errorHandler.apiErrorModel.message ?? ""),
@@ -29,8 +31,19 @@ class HomeCubit extends Cubit<HomeState> {
   changeCategory(int index) {
     categorySelected = index;
     doctorsList = catergoriesList?[categorySelected]?.doctors;
-    emit(HomeState.success(catergoriesList?[index]));
+    isScrollMax = false;
+    emit(HomeState.success(doctorsList));
   }
 
-  moreData(int index) {}
+  moreData() async {
+    await Future.delayed(const Duration(seconds: 1));
+    emit(const HomeState.error(error: ""));
+    print("================= length ${doctorsList!.length}");
+
+    doctorsList = List.from(doctorsList!)
+      ..addAll(catergoriesList?[categorySelected]?.doctors ?? []);
+
+    print("=================## length ${doctorsList!.length}");
+    emit(HomeState.success(doctorsList));
+  }
 }

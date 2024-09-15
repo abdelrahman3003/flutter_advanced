@@ -20,7 +20,7 @@ mixin _$HomeState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Category? category) success,
+    required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$HomeState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Category? category)? success,
+    TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$HomeState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Category? category)? success,
+    TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Category? category) success,
+    required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Category? category)? success,
+    TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Category? category)? success,
+    TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Category? category) success,
+    required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Category? category)? success,
+    TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl<T> implements Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Category? category)? success,
+    TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$SuccessImplCopyWith<T, $Res> {
           _$SuccessImpl<T> value, $Res Function(_$SuccessImpl<T>) then) =
       __$$SuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({Category? category});
+  $Res call({List<Doctor?>? doctorList});
 }
 
 /// @nodoc
@@ -334,13 +334,13 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? category = freezed,
+    Object? doctorList = freezed,
   }) {
     return _then(_$SuccessImpl<T>(
-      freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as Category?,
+      freezed == doctorList
+          ? _value._doctorList
+          : doctorList // ignore: cast_nullable_to_non_nullable
+              as List<Doctor?>?,
     ));
   }
 }
@@ -348,14 +348,22 @@ class __$$SuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$SuccessImpl<T> implements Success<T> {
-  const _$SuccessImpl(this.category);
+  const _$SuccessImpl(final List<Doctor?>? doctorList)
+      : _doctorList = doctorList;
 
+  final List<Doctor?>? _doctorList;
   @override
-  final Category? category;
+  List<Doctor?>? get doctorList {
+    final value = _doctorList;
+    if (value == null) return null;
+    if (_doctorList is EqualUnmodifiableListView) return _doctorList;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'HomeState<$T>.success(category: $category)';
+    return 'HomeState<$T>.success(doctorList: $doctorList)';
   }
 
   @override
@@ -363,12 +371,13 @@ class _$SuccessImpl<T> implements Success<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl<T> &&
-            (identical(other.category, category) ||
-                other.category == category));
+            const DeepCollectionEquality()
+                .equals(other._doctorList, _doctorList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, category);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_doctorList));
 
   @JsonKey(ignore: true)
   @override
@@ -381,10 +390,10 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Category? category) success,
+    required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(String error) error,
   }) {
-    return success(category);
+    return success(doctorList);
   }
 
   @override
@@ -392,10 +401,10 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Category? category)? success,
+    TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(category);
+    return success?.call(doctorList);
   }
 
   @override
@@ -403,12 +412,12 @@ class _$SuccessImpl<T> implements Success<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Category? category)? success,
+    TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(category);
+      return success(doctorList);
     }
     return orElse();
   }
@@ -452,9 +461,9 @@ class _$SuccessImpl<T> implements Success<T> {
 }
 
 abstract class Success<T> implements HomeState<T> {
-  const factory Success(final Category? category) = _$SuccessImpl<T>;
+  const factory Success(final List<Doctor?>? doctorList) = _$SuccessImpl<T>;
 
-  Category? get category;
+  List<Doctor?>? get doctorList;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<T, _$SuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -526,7 +535,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Category? category) success,
+    required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -537,7 +546,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Category? category)? success,
+    TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -548,7 +557,7 @@ class _$ErrorImpl<T> implements Error<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Category? category)? success,
+    TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
