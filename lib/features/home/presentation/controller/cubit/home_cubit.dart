@@ -18,14 +18,15 @@ class HomeCubit extends Cubit<HomeState> {
     emit(const HomeState.loading());
     var response = await homeRepo.fetchData();
     response.when(
-        sucess: (homerespose) {
-          catergoriesList = homerespose.data;
-          doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
-          emit(HomeState.success(doctorsList));
-        },
-        failure: (errorHandler) => emit(
-              HomeState.error(error: errorHandler.apiErrorModel.message ?? ""),
-            ));
+      sucess: (homerespose) {
+        catergoriesList = homerespose.data;
+        doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
+        emit(HomeState.success(doctorsList));
+      },
+      failure: (apiErrorModel) {
+        emit(HomeState.error(apiErrorModel));
+      },
+    );
   }
 
   changeCategory(int index) {
@@ -36,14 +37,11 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   moreData() async {
+    emit(const HomeState.loading());
     await Future.delayed(const Duration(seconds: 1));
-    emit(const HomeState.error(error: ""));
-    print("================= length ${doctorsList!.length}");
-
     doctorsList = List.from(doctorsList!)
       ..addAll(catergoriesList?[categorySelected]?.doctors ?? []);
 
-    print("=================## length ${doctorsList!.length}");
     emit(HomeState.success(doctorsList));
   }
 }

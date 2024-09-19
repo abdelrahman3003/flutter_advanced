@@ -1,3 +1,4 @@
+import 'package:clinic_system/core/network/api_error_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../data/model/doctor.dart';
@@ -10,5 +11,5 @@ class HomeState<T> with _$HomeState<T> {
   //homedataState
   const factory HomeState.loading() = Loading;
   const factory HomeState.success(List<Doctor?>? doctorList) = Success;
-  const factory HomeState.error({required String error}) = Error;
+  const factory HomeState.error(ApiErrorModel apiErrorModel) = Error;
 }

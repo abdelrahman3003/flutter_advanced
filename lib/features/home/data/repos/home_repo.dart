@@ -3,7 +3,7 @@ import 'package:clinic_system/core/network/api_result.dart';
 import 'package:clinic_system/core/network/api_service.dart';
 import 'package:clinic_system/features/home/data/model/doctor.dart';
 
- class HomeRepo {
+class HomeRepo {
   final ApiService apiService;
   HomeRepo(this.apiService);
   Future<ApiResult<HomeResponse>> fetchData() async {

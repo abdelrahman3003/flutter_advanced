@@ -225,12 +225,11 @@ class _SignupViewState extends State<SignupView> {
                     error: (error) {
                       context.pop();
                       showDialog(
-                        context: context,
-                        builder: (context) => erroDialog(context, error)
-                      );
+                          context: context,
+                          builder: (context) => erroDialog(
+                              context, error.getallResponseMessage()));
                     },
                     success: (data) {
-                      
                       context.pop();
                       context.pushNameed(Routes.kHomeView);
                     },

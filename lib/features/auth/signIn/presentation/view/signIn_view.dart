@@ -162,7 +162,7 @@ class _SigninViewState extends State<SigninView> {
                             size: 32,
                           ),
                           content: Text(
-                            error,
+                            error.getallResponseMessage(),
                             style: Styles.font16whitew600
                                 .copyWith(color: AppColors.red),
                           ),
@@ -180,7 +180,7 @@ class _SigninViewState extends State<SigninView> {
                     },
                     success: (data) {
                       context.pop();
-                            context.pushNameed(Routes.kHomeView);
+                      context.pushNameed(Routes.kHomeView);
                     },
                   );
                 },

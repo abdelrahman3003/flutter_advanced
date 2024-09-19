@@ -25,9 +25,9 @@ class SignupCubit extends Cubit<SignupState> {
   void emitLoginStates() async {
     if (formKey.currentState!.validate()) {
       signupRequestBody = SignupRequestBody(
-        name: nameControler.text,
-        email: emailController.text,
-        phone: phoneController.text,
+        name: "",
+        email: '',
+        phone: '',
         password: passwordController.text,
         confirmpaswword: confirmPasswordController.text,
       );
@@ -38,8 +38,7 @@ class SignupCubit extends Cubit<SignupState> {
             emit(SignupState.success(data));
           },
           failure: (errorHandler) => emit(
-                SignupState.error(
-                    error: errorHandler.apiErrorModel.message ?? ""),
+                SignupState.error(errorHandler),
               ));
     }
   }
