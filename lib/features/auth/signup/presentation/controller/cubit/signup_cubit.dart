@@ -11,18 +11,22 @@ class SignupCubit extends Cubit<SignupState> {
   SignupRequestBody? signupRequestBody;
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController nameControler = TextEditingController();
+  TextEditingController emailController =
+      TextEditingController(text: "abdelrahman@gmail.com");
+  TextEditingController passwordController =
+      TextEditingController(text: "Dream16797346##");
+  TextEditingController confirmPasswordController =
+      TextEditingController(text: "Dream16797346##");
+  TextEditingController phoneController =
+      TextEditingController(text: "01032698780");
+  TextEditingController nameControler = TextEditingController(text: "abdo");
   bool hasLowerCase = false;
   bool hasUpperCase = false;
   bool hasSepicailCase = false;
   bool hasNumber = false;
   bool hasMixLenght = false;
 
-  void emitLoginStates() async {
+  void emitSignupStates() async {
     if (formKey.currentState!.validate()) {
       signupRequestBody = SignupRequestBody(
         name: "",
