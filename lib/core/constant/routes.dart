@@ -1,5 +1,6 @@
 import 'package:clinic_system/core/constant/dependecy_injection.dart';
 import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/view/signin_view.dart';
 import 'package:clinic_system/features/auth/signup/presentation/controller/cubit/signup_cubit.dart';
 import 'package:clinic_system/features/auth/signup/presentation/view/signup_view.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
@@ -7,7 +8,7 @@ import 'package:clinic_system/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/auth/signIn/presentation/view/signIn_view.dart';
+import '../../features/auth/signIn/presentation/view/widget/signIn_view_body.dart';
 import '../../features/home/presentation/view/home_view.dart';
 
 class Routes {

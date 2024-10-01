@@ -1,40 +1,62 @@
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/already_have_account.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/email_and_password.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/forgetPassword_and%20_remender.dart';
-import 'package:clinic_system/features/auth/signIn/presentation/view/widget/terms_text.dart';
+import 'package:clinic_system/core/class/navigator.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_cubit.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/controller/cubit/login_state.dart';
+import 'package:clinic_system/features/auth/signIn/presentation/view/widget/signIn_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'widget/login_button.dart';
-import 'widget/welcome_back.dart';
+import '../../../../../core/constant/routes.dart';
+import '../../../../../core/theme/colors.dart';
+import '../../../../../core/theme/styles.dart';
 
 class SigninView extends StatelessWidget {
   const SigninView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-            child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20.h),
-            const WelcomeBack(),
-            SizedBox(height: 36.h),
-            const EmailAndPassword(),
-            const ForgetpasswordAndRemender(),
-            SizedBox(height: 32.h),
-            const LoginButton(),
-            SizedBox(height: 40.h),
-            const TermsText(),
-            SizedBox(height: 24.h),
-            const AlreadyHsveAccount(),
-          ],
-        ),
-      ),
-    )));
+    return BlocListener<LoginCubit, LoginState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: () {
+            showDialog(
+                context: context,
+                builder: (context) => const Center(
+                        child: CircularProgressIndicator(
+                      color: AppColors.primary,
+                    )));
+          },
+          error: (error) {
+            context.pop();
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                icon: const Icon(
+                  Icons.error,
+                  color: AppColors.red,
+                  size: 32,
+                ),
+                content: Text(
+                  error.getallResponseMessage(),
+                  style: Styles.font16whitew600.copyWith(color: AppColors.red),
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    child: Text('GO it', style: Styles.font14blue400w),
+                  )
+                ],
+              ),
+            );
+          },
+          success: (data) {
+            context.pop();
+            context.pushNameed(Routes.kHomeView);
+          },
+        );
+      },
+      child: const SigninViewBody(),
+    );
   }
 }
