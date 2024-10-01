@@ -44,6 +44,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void emitLoginStates() async {
     if (formKey.currentState!.validate()) {
+
       loginRequsetBody = LoginRequsetBody(
           email: emailController.text, password: passwordController.text);
       emit(const LoginState.loading());
@@ -58,7 +59,7 @@ class LoginCubit extends Cubit<LoginState> {
             emit(LoginState.success(data));
           },
           failure: (errorHandler) => emit(
-                LoginState.error( errorHandler),
+                LoginState.error(errorHandler),
               ));
     }
   }

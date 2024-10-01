@@ -22,6 +22,8 @@ mixin _$LoginState<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$LoginState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$LoginState<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$LoginState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$LoginState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$LoginState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +140,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
   }) {
     return initial();
   }
@@ -139,6 +153,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
   }) {
     return initial?.call();
   }
@@ -150,6 +166,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +183,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
   }) {
     return initial(this);
   }
@@ -176,6 +196,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +209,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +266,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
   }) {
     return loading();
   }
@@ -253,6 +279,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
   }) {
     return loading?.call();
   }
@@ -264,6 +292,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +309,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
   }) {
     return loading(this);
   }
@@ -290,6 +322,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +335,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -383,6 +419,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
   }) {
     return success(data);
   }
@@ -394,6 +432,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
   }) {
     return success?.call(data);
   }
@@ -405,6 +445,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -420,6 +462,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
   }) {
     return success(this);
   }
@@ -431,6 +475,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
   }) {
     return success?.call(this);
   }
@@ -442,6 +488,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -529,6 +577,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
   }) {
     return error(apiErrorModel);
   }
@@ -540,6 +590,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
   }) {
     return error?.call(apiErrorModel);
   }
@@ -551,6 +603,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -566,6 +620,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
   }) {
     return error(this);
   }
@@ -577,6 +633,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
   }) {
     return error?.call(this);
   }
@@ -588,6 +646,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -603,5 +663,322 @@ abstract class Error<T> implements LoginState<T> {
   ApiErrorModel get apiErrorModel;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemenderMeImplCopyWith<T, $Res> {
+  factory _$$RemenderMeImplCopyWith(
+          _$RemenderMeImpl<T> value, $Res Function(_$RemenderMeImpl<T>) then) =
+      __$$RemenderMeImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isRemenderMe});
+}
+
+/// @nodoc
+class __$$RemenderMeImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$RemenderMeImpl<T>>
+    implements _$$RemenderMeImplCopyWith<T, $Res> {
+  __$$RemenderMeImplCopyWithImpl(
+      _$RemenderMeImpl<T> _value, $Res Function(_$RemenderMeImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isRemenderMe = null,
+  }) {
+    return _then(_$RemenderMeImpl<T>(
+      null == isRemenderMe
+          ? _value.isRemenderMe
+          : isRemenderMe // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemenderMeImpl<T> implements RemenderMe<T> {
+  const _$RemenderMeImpl(this.isRemenderMe);
+
+  @override
+  final bool isRemenderMe;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.remenderMe(isRemenderMe: $isRemenderMe)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemenderMeImpl<T> &&
+            (identical(other.isRemenderMe, isRemenderMe) ||
+                other.isRemenderMe == isRemenderMe));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isRemenderMe);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemenderMeImplCopyWith<T, _$RemenderMeImpl<T>> get copyWith =>
+      __$$RemenderMeImplCopyWithImpl<T, _$RemenderMeImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
+  }) {
+    return remenderMe(isRemenderMe);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
+  }) {
+    return remenderMe?.call(isRemenderMe);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
+    required TResult orElse(),
+  }) {
+    if (remenderMe != null) {
+      return remenderMe(isRemenderMe);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
+  }) {
+    return remenderMe(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
+  }) {
+    return remenderMe?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
+    required TResult orElse(),
+  }) {
+    if (remenderMe != null) {
+      return remenderMe(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemenderMe<T> implements LoginState<T> {
+  const factory RemenderMe(final bool isRemenderMe) = _$RemenderMeImpl<T>;
+
+  bool get isRemenderMe;
+  @JsonKey(ignore: true)
+  _$$RemenderMeImplCopyWith<T, _$RemenderMeImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShowPasswordImplCopyWith<T, $Res> {
+  factory _$$ShowPasswordImplCopyWith(_$ShowPasswordImpl<T> value,
+          $Res Function(_$ShowPasswordImpl<T>) then) =
+      __$$ShowPasswordImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({bool isShowed});
+}
+
+/// @nodoc
+class __$$ShowPasswordImplCopyWithImpl<T, $Res>
+    extends _$LoginStateCopyWithImpl<T, $Res, _$ShowPasswordImpl<T>>
+    implements _$$ShowPasswordImplCopyWith<T, $Res> {
+  __$$ShowPasswordImplCopyWithImpl(
+      _$ShowPasswordImpl<T> _value, $Res Function(_$ShowPasswordImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isShowed = null,
+  }) {
+    return _then(_$ShowPasswordImpl<T>(
+      null == isShowed
+          ? _value.isShowed
+          : isShowed // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ShowPasswordImpl<T> implements ShowPassword<T> {
+  const _$ShowPasswordImpl(this.isShowed);
+
+  @override
+  final bool isShowed;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.showPassword(isShowed: $isShowed)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShowPasswordImpl<T> &&
+            (identical(other.isShowed, isShowed) ||
+                other.isShowed == isShowed));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isShowed);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShowPasswordImplCopyWith<T, _$ShowPasswordImpl<T>> get copyWith =>
+      __$$ShowPasswordImplCopyWithImpl<T, _$ShowPasswordImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function(bool isRemenderMe) remenderMe,
+    required TResult Function(bool isShowed) showPassword,
+  }) {
+    return showPassword(isShowed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function(bool isRemenderMe)? remenderMe,
+    TResult? Function(bool isShowed)? showPassword,
+  }) {
+    return showPassword?.call(isShowed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function(bool isRemenderMe)? remenderMe,
+    TResult Function(bool isShowed)? showPassword,
+    required TResult orElse(),
+  }) {
+    if (showPassword != null) {
+      return showPassword(isShowed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(RemenderMe<T> value) remenderMe,
+    required TResult Function(ShowPassword<T> value) showPassword,
+  }) {
+    return showPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(RemenderMe<T> value)? remenderMe,
+    TResult? Function(ShowPassword<T> value)? showPassword,
+  }) {
+    return showPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(RemenderMe<T> value)? remenderMe,
+    TResult Function(ShowPassword<T> value)? showPassword,
+    required TResult orElse(),
+  }) {
+    if (showPassword != null) {
+      return showPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShowPassword<T> implements LoginState<T> {
+  const factory ShowPassword(final bool isShowed) = _$ShowPasswordImpl<T>;
+
+  bool get isShowed;
+  @JsonKey(ignore: true)
+  _$$ShowPasswordImplCopyWith<T, _$ShowPasswordImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
