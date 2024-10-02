@@ -26,7 +26,7 @@ class DoctorList extends StatelessWidget {
       child: ListView.builder(
           itemCount: cubit.doctorsList?.length,
           itemBuilder: (context, index) {
-            if (index == cubit.doctorsList!.length - 1 && cubit.isScrollMax) {
+            if ( cubit.doctorsList?.length !=null&& index == cubit.doctorsList!.length - 1 && cubit.isScrollMax) {
               return const Center(
                   child: Padding(
                 padding: EdgeInsets.all(16.0),

@@ -1,7 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:clinic_system/features/home/data/model/doctor.dart';
-import 'package:clinic_system/features/home/data/repos/home_repo.dart';
+import 'package:clinic_system/features/home/data/repos/api/home_repo.dart';
+import 'package:clinic_system/features/home/data/repos/local/home_local_data.dart';
 
+import '../../../../../core/network/api_error_model.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -16,15 +18,23 @@ class HomeCubit extends Cubit<HomeState> {
 
   void fetchData() async {
     emit(const HomeState.loading());
+    HomeLocalData().cachimage();
     var response = await homeRepo.fetchData();
     response.when(
       sucess: (homerespose) {
+        HomeLocalData().saveCategories(homerespose);
         catergoriesList = homerespose.data;
         doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
         emit(HomeState.success(doctorsList));
       },
       failure: (apiErrorModel) {
-        emit(HomeState.error(apiErrorModel));
+        if (apiErrorModel.message == "Connection to server failure") {
+          catergoriesList = HomeLocalData().getCachedCategories();
+          doctorsList = catergoriesList?[categorySelected]?.doctors ?? [];
+          emit(HomeState.success(doctorsList));
+        } else {
+          emit(HomeState.error(apiErrorModel));
+        }
       },
     );
   }

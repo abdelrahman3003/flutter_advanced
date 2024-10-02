@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:clinic_system/core/theme/styles.dart';
+import 'package:clinic_system/features/home/data/repos/local/home_local_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,8 +28,11 @@ class DoctorListItem extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(image ??
-                    "https://images.pexels.com/photos/5327656/pexels-photo-5327656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                image: CachedNetworkImageProvider(
+                  image ??
+                    HomeLocalData().getConatstImage()  ,
+               
+                ),
               )),
         ),
         SizedBox(width: 20.w),

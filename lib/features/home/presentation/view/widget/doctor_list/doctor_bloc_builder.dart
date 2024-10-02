@@ -2,6 +2,7 @@ import 'package:clinic_system/features/home/presentation/view/widget/doctor_list
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/constant/dialogs.dart';
 import '../../../controller/cubit/home_cubit.dart';
 import '../../../controller/cubit/home_state.dart';
 import 'doctor_list.dart';
@@ -18,8 +19,8 @@ class DoctorBlocBuilder extends StatelessWidget {
           success: (doctorsList) {
             return Expanded(child: DoctorList(doctorList: doctorsList ?? []));
           },
-          // error: (error) => erroDialog(context, error),
-          orElse: () => const SizedBox.shrink(),
+      // error: (error) => erroDialog(context, error.errors),
+          orElse: () => const DoctorsShimmerLoading(),
         );
       },
     );

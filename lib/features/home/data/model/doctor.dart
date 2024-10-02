@@ -1,8 +1,12 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'doctor.g.dart';
 
 @JsonSerializable()
-class HomeResponse {
+@HiveType(typeId: 0)
+class HomeResponse extends HiveObject{
+  @HiveField(0)
   List<Category?>? data;
 
   HomeResponse({this.data});
@@ -12,9 +16,13 @@ class HomeResponse {
 }
 
 @JsonSerializable()
-class Category {
+@HiveType(typeId: 1)
+class Category extends HiveObject{
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   List<Doctor?>? doctors;
 
   Category({this.doctors, this.id, this.name});
@@ -24,20 +32,35 @@ class Category {
 }
 
 @JsonSerializable()
+@HiveType(typeId: 2)
 class Doctor {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   String? email;
+  @HiveField(3)
   String? phone;
+  @HiveField(4)
   String? photo;
+  @HiveField(5)
   String? gender;
+  @HiveField(6)
   String? address;
+  @HiveField(7)
   String? description;
+  @HiveField(8)
   String? degree;
+  @HiveField(9)
   Specialization? specialization;
+  @HiveField(10)
   City? city;
+  @HiveField(11)
   int? appointPrice;
+  @HiveField(12)
   String? startTime;
+  @HiveField(13)
   String? endTime;
 
   Doctor(
@@ -60,21 +83,30 @@ class Doctor {
 }
 
 @JsonSerializable()
+@HiveType(typeId: 3)
 class Specialization {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
 
   Specialization({this.id, this.name});
+
   factory Specialization.fromJson(Map<String, dynamic> json) =>
       _$SpecializationFromJson(json);
 }
 
 @JsonSerializable()
+@HiveType(typeId: 4)
 class City {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   Specialization? governrate;
 
   City({this.id, this.name, this.governrate});
+
   factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
 }
