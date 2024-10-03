@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:clinic_system/core/constant/routes.dart';
 import 'package:clinic_system/core/theme/styles.dart';
-import 'package:clinic_system/features/home/data/repos/local/home_local_data.dart';
 import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -18,15 +18,15 @@ class DoctorList extends StatelessWidget {
             notification.metrics.extentAfter == 0) {
           cubit.isScrollMax = true;
           cubit.moreData();
-          print(
-              "===================moredata , ismaxscroll = $cubit.isScrollMax");
         }
         return false;
       },
       child: ListView.builder(
           itemCount: cubit.doctorsList?.length,
           itemBuilder: (context, index) {
-            if ( cubit.doctorsList?.length !=null&& index == cubit.doctorsList!.length - 1 && cubit.isScrollMax) {
+            if (cubit.doctorsList?.length != null &&
+                index == cubit.doctorsList!.length - 1 &&
+                cubit.isScrollMax) {
               return const Center(
                   child: Padding(
                 padding: EdgeInsets.all(16.0),
