@@ -30,6 +30,7 @@ environment:
 dependencies:
   build_runner: ^2.4.10
   cached_network_image: ^3.3.0
+  connectivity_plus: ^6.0.5
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
   easy_localization: ^3.0.3

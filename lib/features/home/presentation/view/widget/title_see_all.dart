@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 import '../../../../../core/theme/styles.dart';
 
 class TitleSeeAll extends StatelessWidget {

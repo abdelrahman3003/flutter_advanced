@@ -12,4 +12,6 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.loading() = Loading;
   const factory HomeState.success(List<Doctor?>? doctorList) = Success;
   const factory HomeState.error(ApiErrorModel apiErrorModel) = Error;
+  const factory HomeState.connectivityConnected() = ConnectivityConnected;
+  const factory HomeState.connectivityDisconnected() = ConnectivityDisconnected;
 }

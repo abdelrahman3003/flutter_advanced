@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clinic_system/core/constant/routes.dart';
 import 'package:clinic_system/core/theme/styles.dart';
 import 'package:clinic_system/features/home/data/repos/local/home_local_data.dart';
+import 'package:clinic_system/features/home/presentation/controller/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -28,12 +31,12 @@ class DoctorListItem extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(
-                  image ??
-                    HomeLocalData().getConatstImage()  ,
-               
-                ),
-              )),
+                  image: context.read<HomeCubit>().connectivityResult!=
+                          ConnectionState.none
+                      ? CachedNetworkImageProvider(
+                          image!,
+                        )
+                      : AssetImage(Assets.images.background.path))),
         ),
         SizedBox(width: 20.w),
         Column(

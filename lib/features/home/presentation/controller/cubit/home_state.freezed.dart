@@ -22,6 +22,8 @@ mixin _$HomeState<T> {
     required TResult Function() loading,
     required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$HomeState<T> {
     TResult? Function()? loading,
     TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$HomeState<T> {
     TResult Function()? loading,
     TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,10 @@ mixin _$HomeState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +65,9 @@ mixin _$HomeState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +76,9 @@ mixin _$HomeState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +144,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
   }) {
     return initial();
   }
@@ -139,6 +157,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
   }) {
     return initial?.call();
   }
@@ -150,6 +170,8 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +187,10 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
   }) {
     return initial(this);
   }
@@ -176,6 +202,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +216,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +274,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
   }) {
     return loading();
   }
@@ -253,6 +287,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
   }) {
     return loading?.call();
   }
@@ -264,6 +300,8 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +317,10 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
   }) {
     return loading(this);
   }
@@ -290,6 +332,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +346,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -392,6 +440,8 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
   }) {
     return success(doctorList);
   }
@@ -403,6 +453,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
   }) {
     return success?.call(doctorList);
   }
@@ -414,6 +466,8 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -429,6 +483,10 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
   }) {
     return success(this);
   }
@@ -440,6 +498,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
   }) {
     return success?.call(this);
   }
@@ -451,6 +512,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -538,6 +602,8 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(List<Doctor?>? doctorList) success,
     required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
   }) {
     return error(apiErrorModel);
   }
@@ -549,6 +615,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(List<Doctor?>? doctorList)? success,
     TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
   }) {
     return error?.call(apiErrorModel);
   }
@@ -560,6 +628,8 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(List<Doctor?>? doctorList)? success,
     TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -575,6 +645,10 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
   }) {
     return error(this);
   }
@@ -586,6 +660,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
   }) {
     return error?.call(this);
   }
@@ -597,6 +674,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -613,4 +693,270 @@ abstract class Error<T> implements HomeState<T> {
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ConnectivityConnectedImplCopyWith<T, $Res> {
+  factory _$$ConnectivityConnectedImplCopyWith(
+          _$ConnectivityConnectedImpl<T> value,
+          $Res Function(_$ConnectivityConnectedImpl<T>) then) =
+      __$$ConnectivityConnectedImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ConnectivityConnectedImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$ConnectivityConnectedImpl<T>>
+    implements _$$ConnectivityConnectedImplCopyWith<T, $Res> {
+  __$$ConnectivityConnectedImplCopyWithImpl(
+      _$ConnectivityConnectedImpl<T> _value,
+      $Res Function(_$ConnectivityConnectedImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ConnectivityConnectedImpl<T> implements ConnectivityConnected<T> {
+  const _$ConnectivityConnectedImpl();
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.connectivityConnected()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConnectivityConnectedImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Doctor?>? doctorList) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
+  }) {
+    return connectivityConnected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Doctor?>? doctorList)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
+  }) {
+    return connectivityConnected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Doctor?>? doctorList)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
+    required TResult orElse(),
+  }) {
+    if (connectivityConnected != null) {
+      return connectivityConnected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
+  }) {
+    return connectivityConnected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
+  }) {
+    return connectivityConnected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
+    required TResult orElse(),
+  }) {
+    if (connectivityConnected != null) {
+      return connectivityConnected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConnectivityConnected<T> implements HomeState<T> {
+  const factory ConnectivityConnected() = _$ConnectivityConnectedImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$ConnectivityDisconnectedImplCopyWith<T, $Res> {
+  factory _$$ConnectivityDisconnectedImplCopyWith(
+          _$ConnectivityDisconnectedImpl<T> value,
+          $Res Function(_$ConnectivityDisconnectedImpl<T>) then) =
+      __$$ConnectivityDisconnectedImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$ConnectivityDisconnectedImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$ConnectivityDisconnectedImpl<T>>
+    implements _$$ConnectivityDisconnectedImplCopyWith<T, $Res> {
+  __$$ConnectivityDisconnectedImplCopyWithImpl(
+      _$ConnectivityDisconnectedImpl<T> _value,
+      $Res Function(_$ConnectivityDisconnectedImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ConnectivityDisconnectedImpl<T> implements ConnectivityDisconnected<T> {
+  const _$ConnectivityDisconnectedImpl();
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.connectivityDisconnected()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConnectivityDisconnectedImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Doctor?>? doctorList) success,
+    required TResult Function(ApiErrorModel apiErrorModel) error,
+    required TResult Function() connectivityConnected,
+    required TResult Function() connectivityDisconnected,
+  }) {
+    return connectivityDisconnected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Doctor?>? doctorList)? success,
+    TResult? Function(ApiErrorModel apiErrorModel)? error,
+    TResult? Function()? connectivityConnected,
+    TResult? Function()? connectivityDisconnected,
+  }) {
+    return connectivityDisconnected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Doctor?>? doctorList)? success,
+    TResult Function(ApiErrorModel apiErrorModel)? error,
+    TResult Function()? connectivityConnected,
+    TResult Function()? connectivityDisconnected,
+    required TResult orElse(),
+  }) {
+    if (connectivityDisconnected != null) {
+      return connectivityDisconnected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(ConnectivityConnected<T> value)
+        connectivityConnected,
+    required TResult Function(ConnectivityDisconnected<T> value)
+        connectivityDisconnected,
+  }) {
+    return connectivityDisconnected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult? Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
+  }) {
+    return connectivityDisconnected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(ConnectivityConnected<T> value)? connectivityConnected,
+    TResult Function(ConnectivityDisconnected<T> value)?
+        connectivityDisconnected,
+    required TResult orElse(),
+  }) {
+    if (connectivityDisconnected != null) {
+      return connectivityDisconnected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ConnectivityDisconnected<T> implements HomeState<T> {
+  const factory ConnectivityDisconnected() = _$ConnectivityDisconnectedImpl<T>;
 }
