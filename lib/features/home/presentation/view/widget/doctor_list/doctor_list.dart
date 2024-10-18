@@ -12,33 +12,25 @@ class DoctorList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<HomeCubit>();
-    return NotificationListener<ScrollNotification>(
-      onNotification: (notification) {
-        if (notification is ScrollEndNotification &&
-            notification.metrics.extentAfter == 0) {
-          cubit.isScrollMax = true;
-          cubit.moreData();
+    return ListView.builder(
+      controller: cubit.scrollController,
+      itemCount: cubit.doctorsList?.length ?? 0,
+      itemBuilder: (context, index) {
+        if (index == cubit.doctorsList!.length - 1 && cubit.isScrollMax) {
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else {
+          return DoctorListItem(
+            name: "${doctorList[index]?.name}",
+            image: doctorList[index]?.photo,
+            categoryName: "${doctorList[index]?.specialization?.name}",
+          );
         }
-        return false;
       },
-      child: ListView.builder(
-          itemCount: cubit.doctorsList?.length,
-          itemBuilder: (context, index) {
-            if (cubit.doctorsList?.length != null &&
-                index == cubit.doctorsList!.length - 1 &&
-                cubit.isScrollMax) {
-              return const Center(
-                  child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: CircularProgressIndicator(),
-              ));
-            } else {
-              return DoctorListItem(
-                  name: "${doctorList[index]?.name}",
-                  image: doctorList[index]?.photo,
-                  categoryName: "${doctorList[index]?.specialization?.name}");
-            }
-          }),
     );
   }
 }

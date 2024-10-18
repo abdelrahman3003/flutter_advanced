@@ -13,15 +13,17 @@ class HomeCubit extends Cubit<HomeState> {
     //checkConnectivity();
     listenToConnectivityChanges();
     fetchData();
+    scrollListner();
   }
   final HomeRepo homeRepo;
   late List<Category?>? catergoriesList;
   List<Doctor?>? doctorsList;
   int categorySelected = 0;
   bool isScrollMax = false;
-
+  late ScrollController scrollController;
   ConnectivityResult? connectivityResult;
-  void fetchData() async {
+
+  fetchData() async {
     emit(const HomeState.loading());
     HomeLocalData().cachimage();
     var response = await homeRepo.fetchData();
@@ -44,7 +46,19 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  void showSnackbar(BuildContext context, String text) {
+  scrollListner() {
+
+    scrollController = ScrollController()
+      ..addListener(() {
+        if (scrollController.position.atEdge &&
+            scrollController.position.pixels != 0) {
+          isScrollMax = true;
+          moreData();
+        }
+      });
+  }
+
+  showSnackbar(BuildContext context, String text) {
     final snackBar = SnackBar(
       backgroundColor:
           text == "Disconnected" ? AppColors.black : AppColors.green,
@@ -68,7 +82,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeState.success(doctorsList));
   }
 
-  void listenToConnectivityChanges() {
+  listenToConnectivityChanges() {
     Connectivity().onConnectivityChanged.listen((result) {
       if (result.contains(ConnectivityResult.none)) {
         connectivityResult = ConnectivityResult.none;

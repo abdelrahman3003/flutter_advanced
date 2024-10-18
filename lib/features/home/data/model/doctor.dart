@@ -24,7 +24,6 @@ class Category extends HiveObject{
   String? name;
   @HiveField(2)
   List<Doctor?>? doctors;
-
   Category({this.doctors, this.id, this.name});
 
   factory Category.fromJson(Map<String, dynamic> json) =>
